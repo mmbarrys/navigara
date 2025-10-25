@@ -43,3 +43,15 @@
 2025-10-25 11:58:26,632 INFO lentera_generate_case(151) LENTERA (Tahap 1): Generate Case. File: CV_Citra_Lestari.pdf, Jabatan: Analis Kebijakan Ahli Madya
 2025-10-25 11:59:23,540 INFO selayar_osint_sentiment(205) SELAYAR (OSINT): Dipicu. Program: Digitalisasi Layanan Pertanahan, Provider: gemini
 2025-10-25 11:59:23,540 INFO run_osint_analysis(119) OSINT Engine: Menjalankan kueri Google untuk 'Digitalisasi Layanan Pertanahan'
+2025-10-25 12:41:51,546 INFO <module>(37) Server NAVIGARA (Python) v2.1 (Google OSINT) Dimulai...
+2025-10-25 12:41:51,546 INFO <module>(54) Klien API Gemini dikonfigurasi. Model: gemini-2.5-flash
+2025-10-25 12:41:51,556 INFO <module>(66) Klien Google Custom Search berhasil dikonfigurasi.
+2025-10-25 12:50:45,205 INFO <module>(37) Server NAVIGARA (Python) v2.1 (Google OSINT) Dimulai...
+2025-10-25 12:50:45,206 INFO <module>(54) Klien API Gemini dikonfigurasi. Model: gemini-2.5-flash
+2025-10-25 12:50:45,210 INFO <module>(66) Klien Google Custom Search berhasil dikonfigurasi.
+2025-10-25 12:52:08,934 INFO <module>(37) Server NAVIGARA (Python) v2.1 (Google OSINT) Dimulai...
+2025-10-25 12:52:08,934 INFO <module>(54) Klien API Gemini dikonfigurasi. Model: gemini-2.5-flash
+2025-10-25 12:52:08,941 INFO <module>(66) Klien Google Custom Search berhasil dikonfigurasi.
+2025-10-25 12:54:25,998 INFO <module>(37) Server NAVIGARA (Python) v2.1 (Google OSINT) Dimulai...
+2025-10-25 12:54:25,999 INFO <module>(54) Klien API Gemini dikonfigurasi. Model: gemini-2.5-flash
+2025-10-25 12:54:26,003 INFO <module>(66) Klien Google Custom Search berhasil dikonfigurasi.
