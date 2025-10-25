@@ -33,7 +33,7 @@ GEMINI_KEY = os.getenv('GEMINI_API_KEY')
 BYTEPLUS_KEY = os.getenv('BYTEPLUS_API_KEY')
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
 GOOGLE_CSE_ID = os.getenv('GOOGLE_CSE_ID')
-GEMINI_MODEL_NAME = "gemini-1.5-flash"
+GEMINI_MODEL_NAME = "gemini-2.5-flash"
 BYTEPLUS_MODEL_NAME = "seed-1-6-250615"
 BYTEPLUS_API_ENDPOINT = "https://ark.ap-southeast.bytepluses.com/api/v3/chat/completions"
 
