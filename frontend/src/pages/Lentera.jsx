@@ -100,7 +100,17 @@ function Lentera() {
   return (
     <div className="module-container">
       <h2>Modul LENTERA - Asesmen Talenta Adaptif</h2>
-      {/* ... (Tombol Reset & AI Selector Sama) ... */}
+      {/* Tombol Reset */}
+      <button onClick={resetAll} style={{ float: 'right', background: '#aaa', marginBottom: '10px' }}>Reset Form</button>
+      
+      {/* AI Provider Selector */
+      <div style={{ marginBottom: '20px', padding: '10px', background: 'rgba(0,0,0,0.2)', borderRadius: '4px' }}>
+        <label>Pilih AI Provider: </label>
+        <select value={provider} onChange={(e) => setProvider(e.target.value)} disabled={loading}>
+          <option value="gemini">Google Gemini</option>
+          <option value="byteplus">Byteplus ARK</option>
+        </select>
+      </div>}
       {error && <div className="result-box error-box"><h4>Error:</h4><p>{error}</p></div>}
 
       {/* --- TAHAP 1 (Sama) --- */}
