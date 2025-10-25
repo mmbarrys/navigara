@@ -3,6 +3,7 @@ from flask_cors import CORS
 import networkx as nx
 import json
 import os
+import re # Import modul regular expression
 from dotenv import load_dotenv
 import logging
 from logging.handlers import RotatingFileHandler
@@ -15,10 +16,9 @@ from googleapiclient.discovery import build # Google Search
 # --- Konfigurasi Awal ---
 load_dotenv()
 app = Flask(__name__)
-CORS(app)
+CORS(app) # Biarkan global untuk kemudahan development
 UPLOAD_FOLDER = 'uploads'
-if not os.path.exists(UPLOAD_FOLDER):
-    os.makedirs(UPLOAD_FOLDER)
+if not os.path.exists(UPLOAD_FOLDER): os.makedirs(UPLOAD_FOLDER)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # --- Konfigurasi Logging ---
@@ -34,14 +34,13 @@ app.logger.handlers.clear()
 app.logger.addHandler(file_handler)
 app.logger.addHandler(console_handler)
 app.logger.setLevel(logging.INFO)
-app.logger.info("Server NAVIGARA (Python) v2.1 (Google OSINT) Dimulai...")
+app.logger.info("Server NAVIGARA (Python) v2.2 (Enhanced Profile) Dimulai...")
 
 # --- Konfigurasi Klien API ---
 GEMINI_KEY = os.getenv('GEMINI_API_KEY')
 BYTEPLUS_KEY = os.getenv('BYTEPLUS_API_KEY')
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
 GOOGLE_CSE_ID = os.getenv('GOOGLE_CSE_ID')
-
 GEMINI_MODEL_NAME = "gemini-2.5-flash"
 BYTEPLUS_MODEL_NAME = "seed-1-6-250615"
 BYTEPLUS_API_ENDPOINT = "https://ark.ap-southeast.bytepluses.com/api/v3/chat/completions"
@@ -52,55 +51,36 @@ if GEMINI_KEY:
         genai.configure(api_key=GEMINI_KEY)
         gemini_model = genai.GenerativeModel(GEMINI_MODEL_NAME)
         app.logger.info(f"Klien API Gemini dikonfigurasi. Model: {GEMINI_MODEL_NAME}")
-    except Exception as e:
-        app.logger.error(f"Gagal konfigurasi Gemini: {str(e)}")
-        gemini_model = None
-else:
-    app.logger.warning("GEMINI_API_KEY tidak ditemukan.")
-    gemini_model = None
+    except Exception as e: gemini_model = None; app.logger.error(f"Gagal konfigurasi Gemini: {str(e)}")
+else: gemini_model = None; app.logger.warning("GEMINI_API_KEY tidak ditemukan.")
 
 # Klien Google Search
 if GOOGLE_API_KEY and GOOGLE_CSE_ID:
     try:
         google_search_service = build("customsearch", "v1", developerKey=GOOGLE_API_KEY)
         app.logger.info("Klien Google Custom Search berhasil dikonfigurasi.")
-    except Exception as e:
-        app.logger.error(f"Gagal konfigurasi Google Search: {str(e)}")
-        google_search_service = None
-else:
-    app.logger.warning("GOOGLE_API_KEY atau GOOGLE_CSE_ID tidak ditemukan. Modul OSINT akan dibatasi.")
-    google_search_service = None
+    except Exception as e: google_search_service = None; app.logger.error(f"Gagal konfigurasi Google Search: {str(e)}")
+else: google_search_service = None; app.logger.warning("GOOGLE keys tidak ditemukan. OSINT dibatasi.")
 
-if not BYTEPLUS_KEY:
-    app.logger.warning("BYTEPLUS_API_KEY tidak ditemukan.")
+if not BYTEPLUS_KEY: app.logger.warning("BYTEPLUS_API_KEY tidak ditemukan.")
 
 # --- Helper: Ekstraksi Teks File ---
 def extract_text_from_file(file_path):
     try:
         if file_path.lower().endswith('.pdf'):
-            doc = fitz.open(file_path)
-            text = "".join(page.get_text() for page in doc)
-            doc.close()
-            return text
+            doc = fitz.open(file_path); text = "".join(page.get_text() for page in doc); doc.close(); return text
         elif file_path.lower().endswith('.txt'):
-            with open(file_path, 'r', encoding='utf-8') as f:
-                return f.read()
+            with open(file_path, 'r', encoding='utf-8') as f: return f.read()
         return None
-    except Exception as e:
-        app.logger.error(f"Gagal mengekstrak file {file_path}: {str(e)}")
-        return None
+    except Exception as e: app.logger.error(f"Gagal ekstrak file {file_path}: {str(e)}"); return None
 
 # --- Helper: Fungsi Panggilan AI ---
 def call_gemini_api(prompt):
     if not gemini_model: return "Error: Klien API Gemini tidak terkonfigurasi."
-    try:
-        response = gemini_model.generate_content(prompt)
-        return response.text
-    except Exception as e:
-        app.logger.error(f"Error API Gemini: {str(e)}")
-        return f"Error: Gagal memanggil API Gemini. {str(e)}"
+    try: return gemini_model.generate_content(prompt).text
+    except Exception as e: app.logger.error(f"Error API Gemini: {str(e)}"); return f"Error API Gemini: {str(e)}"
 
-def call_byteplus_api(prompt, system_prompt="Anda adalah asisten AI yang membantu."):
+def call_byteplus_api(prompt, system_prompt="Anda asisten AI."):
     if not BYTEPLUS_KEY: return "Error: Klien API Byteplus tidak terkonfigurasi."
     headers = {"Authorization": f"Bearer {BYTEPLUS_KEY}", "Content-Type": "application/json"}
     payload = {"model": BYTEPLUS_MODEL_NAME, "messages": [{"role": "system", "content": system_prompt}, {"role": "user", "content": prompt}]}
@@ -108,169 +88,230 @@ def call_byteplus_api(prompt, system_prompt="Anda adalah asisten AI yang membant
         response = requests.post(BYTEPLUS_API_ENDPOINT, headers=headers, json=payload, timeout=60)
         response.raise_for_status()
         return response.json()['choices'][0]['message']['content']
-    except requests.exceptions.ReadTimeout:
-        return "Error: Gagal memanggil API Byteplus (Read Timed Out)."
-    except Exception as e:
-        app.logger.error(f"Error API Byteplus: {str(e)}")
-        return f"Error: Gagal memanggil API Byteplus. {str(e)}"
+    except requests.exceptions.ReadTimeout: return "Error: API Byteplus Timeout (60s)."
+    except Exception as e: app.logger.error(f"Error API Byteplus: {str(e)}"); return f"Error API Byteplus: {str(e)}"
 
 # --- Helper: OSINT Engine (Google Search) ---
 def run_osint_analysis(query):
-    app.logger.info(f"OSINT Engine: Menjalankan kueri Google untuk '{query}'")
-    articles_output = []
+    app.logger.info(f"OSINT Engine: Google Search '{query}'")
+    articles = []
     if not google_search_service:
-        articles_output.append({"source": "Sistem", "title": "Google Search API tidak dikonfigurasi", "url": "#", "snippet": "Pastikan GOOGLE_API_KEY dan GOOGLE_CSE_ID ada di .env"})
-        return articles_output
+        articles.append({"source": "Sistem", "title": "Google Search API Error", "url": "#", "snippet": "API Key/CSE ID tidak valid."})
+        return articles
     try:
-        result = google_search_service.cse().list(q=query, cx=GOOGLE_CSE_ID, num=5, gl='id').execute()
-        if 'items' not in result:
-            return [{"source": "Google Search", "title": "Tidak ada hasil ditemukan", "url": "#", "snippet": "Kueri Anda tidak menemukan dokumen yang relevan."}]
-        for item in result['items']:
-            articles_output.append({
-                "source": item.get('displayLink', 'Unknown Source'),
-                "title": item.get('title', 'No Title'),
-                "url": item.get('link', '#'),
-                "snippet": item.get('snippet', 'No Snippet')
-            })
+        result = google_search_service.cse().list(q=query, cx=GOOGLE_CSE_ID, num=3, gl='id').execute() # Ambil 3 hasil saja
+        if 'items' in result:
+            for item in result['items']:
+                articles.append({"source": item.get('displayLink','N/A'), "title": item.get('title','N/A'), "url": item.get('link','#'), "snippet": item.get('snippet','')})
+        else: articles.append({"source": "Google", "title": "Tidak ada hasil", "url": "#", "snippet": ""})
     except Exception as e:
         app.logger.error(f"Error Google Search API: {str(e)}")
-        if "quota" in str(e).lower():
-             articles_output.append({"source": "Google Search", "title": "Error Kuota Gratis Habis", "url": "#", "snippet": "Kuota 100 kueri/hari mungkin telah terlampaui."})
-        else:
-            articles_output.append({"source": "Google Search", "title": f"Error API: {str(e)}", "url": "#", "snippet": "Periksa API Key / CSE ID Anda."})
-    return articles_output
+        err_msg = "Kuota Habis?" if "quota" in str(e).lower() else str(e)
+        articles.append({"source": "Google", "title": "Error API", "url": "#", "snippet": err_msg})
+    return articles
 
-# --- MODUL 1: LENTERA (Alur Baru) ---
+# --- Helper: Parsing Skor (Lebih Robust) ---
+def parse_score(text, keyword, default=50):
+    """Mencari keyword dalam teks dan mengekstrak angka setelahnya."""
+    try:
+        # Cari pola seperti "Keyword: [angka]" atau "Keyword [angka]" atau "[angka] / 100"
+        match = re.search(rf"{keyword}\s*[:\-]*\s*(\d+)", text, re.IGNORECASE)
+        if match:
+            return int(match.group(1))
+        # Coba cari pola skor / 100 jika keyword ada di baris yg sama
+        match_fraction = re.search(rf".*{keyword}.*?(\d+)\s*/\s*100", text, re.IGNORECASE | re.DOTALL)
+        if match_fraction:
+            return int(match_fraction.group(1))
+        return default
+    except:
+        return default
+
+# --- MODUL 1: LENTERA ---
 @app.route('/api/lentera/generate-case', methods=['POST'])
 def lentera_generate_case():
+    # ... (kode sama seperti V2) ...
     if 'file_cv' not in request.files: return jsonify({"error": "File CV tidak terdeteksi"}), 400
     file_cv, provider, jabatan = request.files['file_cv'], request.form.get('provider', 'gemini'), request.form.get('jabatan', 'Analis Kebijakan')
-    filename = secure_filename(file_cv.filename)
-    file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-    file_cv.save(file_path)
+    filename = secure_filename(file_cv.filename); file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename); file_cv.save(file_path)
     app.logger.info(f"LENTERA (Tahap 1): Generate Case. File: {filename}, Jabatan: {jabatan}")
-    cv_text = extract_text_from_file(file_path)
-    os.remove(file_path)
-    if not cv_text: return jsonify({"error": "Gagal membaca teks dari file CV"}), 500
-
-    prompt = f"Anda adalah Asesor AI BKN...\nDATA KANDIDAT:\n- Jabatan yang dituju: {jabatan}\n- Ringkasan CV: {cv_text[:2000]}\n\nTUGAS:\nBuat 1 (satu) soal studi kasus yang SANGAT RELEVAN...\n**Skenario:**\n[Skenario]\n\n**Pertanyaan (3 poin):**\n1. [Pertanyaan 1]\n2. [Pertanyaan 2]\n3. [Pertanyaan 3]"
-    
+    cv_text = extract_text_from_file(file_path); os.remove(file_path)
+    if not cv_text: return jsonify({"error": "Gagal membaca teks CV"}), 500
+    prompt = f"Anda Asesor AI BKN...\nDATA KANDIDAT:\n- Jabatan: {jabatan}\n- CV: {cv_text[:2000]}\nTUGAS: Buat 1 soal studi kasus relevan...\n**Skenario:**\n[Skenario]\n\n**Pertanyaan (3 poin):**\n1. [P1]\n2. [P2]\n3. [P3]"
     if provider == 'gemini': result = call_gemini_api(prompt)
-    else: result = call_byteplus_api(prompt, "Anda adalah Asesor AI BKN pembuat soal.")
+    else: result = call_byteplus_api(prompt, "Anda Asesor AI BKN pembuat soal.")
     return jsonify({"case_study": result, "cv_text_cache": cv_text})
 
 @app.route('/api/lentera/grade-final', methods=['POST'])
 def lentera_grade_final():
+    # --- PROMPT & PARSING BARU ---
     data = request.json
     provider, jabatan = data.get('provider', 'gemini'), data.get('jabatan', 'Analis Kebijakan')
     cv_text, case_study, answer = data.get('cv_text_cache', ''), data.get('case_study', ''), data.get('answer', '')
-    app.logger.info(f"LENTERA (Tahap 2): Grade Final dipicu. Provider: {provider}")
+    app.logger.info(f"LENTERA (Tahap 2): Grade Final. Provider: {provider}")
 
     nama_kandidat = "Kandidat"
-    for line in cv_text.splitlines():
-        if "nama:" in line.lower() or "name:" in line.lower():
-            nama_kandidat = line.split(":")[-1].strip()
-            break
+    match_nama = re.search(r"(?:nama|name)\s*[:\-]*\s*(.+)", cv_text, re.IGNORECASE)
+    if match_nama: nama_kandidat = match_nama.group(1).strip().splitlines()[0] # Ambil baris pertama nama
+        
     osint_results = run_osint_analysis(f'"{nama_kandidat}" ASN OR PNS OR BKN')
-    osint_summary = "\n".join([f"- {res['title']} ({res['source']})" for res in osint_results])
+    osint_summary = "\n".join([f"- [{res['source']}]({res['url']}): {res['snippet'][:100]}..." for res in osint_results])
 
-    prompt = f"Anda adalah AI Grader BKN...\n--- DATA 1: JABATAN DITUJU ---\n{jabatan}\n--- DATA 2: CV KANDIDAT ---\n{cv_text[:2000]}\n--- DATA 3: SOAL STUDI KASUS ---\n{case_study}\n--- DATA 4: JAWABAN KANDIDAT ---\n{answer}\n--- DATA 5: HASIL OSINT (Jejak Digital) ---\n{osint_summary}\n\nTUGAS:\nBuat \"Profil Potensi LENTERA\"...\n**1. Analisis Kualifikasi (CV vs Jabatan):**\n[Analisis]\n**2. Analisis Studi Kasus (Nalar & Problem-Solving):**\n[Analisis]\n**3. Analisis Jejak Digital (OSINT):**\n[Analisis]\n**4. Skor Potensi (1-100):**\n* Kesesuaian Kualifikasi: [Skor / 100]\n* Logika & Nalar (Jawaban): [Skor / 100]\n* Total Skor Potensi: [Rata-rata Skor]\n**5. Rekomendasi Kelayakan:**\n[Direkomendasikan/Butuh Pengembangan]\n**6. Rekomendasi Pembelajaran (Jika Butuh Pengembangan):**\n[Link ke https://asn.futureskills.id/fs atau https://elearning.bsn.go.id/]"
+    prompt = f"""
+    Anda adalah AI Grader BKN yang objektif dan teliti.
+    Tugas Anda adalah membuat **Profil Potensi LENTERA** yang komprehensif dan terstruktur.
+
+    --- DATA KANDIDAT ---
+    **Jabatan yang Dituju:** {jabatan}
+    **Nama (dari CV):** {nama_kandidat}
+    **Ringkasan CV:** {cv_text[:2000]} 
+    --- AKHIR CV ---
+
+    --- DATA ASESMEN ---
+    **Soal Studi Kasus:**
+    {case_study}
+    --- AKHIR SOAL ---
+    **Jawaban Kandidat:**
+    {answer}
+    --- AKHIR JAWABAN ---
+
+    --- DATA OSINT (Jejak Digital) ---
+    {osint_summary}
+    --- AKHIR OSINT ---
+
+    INSTRUKSI PEMBUATAN PROFIL (WAJIB DIIKUTI):
+    Buatlah profil dalam format Markdown berikut. Berikan analisis **objektif** dan **ringkas** di setiap bagian. Berikan **skor numerik** yang jelas.
+
+    **================ PROFIL POTENSI LENTERA ================**
+
+    **Nama Kandidat:** {nama_kandidat}
+    **Jabatan Dituju:** {jabatan}
+
+    **1. Analisis Kualifikasi (CV vs Jabatan):**
+    * **Kesesuaian Pendidikan/Pengalaman:** [Analisis ringkas kesesuaian latar belakang dengan jabatan]
+    * **Keterampilan Relevan (Terdeteksi):** [Sebutkan 1-3 skill kunci dari CV yang cocok]
+    * **Potensi Pengembangan:** [Area potensi dari CV yang bisa dikembangkan untuk jabatan ini]
+
+    **2. Analisis Studi Kasus (Jawaban vs Soal):**
+    * **Pemahaman Masalah:** [Analisis apakah kandidat memahami inti masalah di soal]
+    * **Logika & Struktur Jawaban:** [Analisis alur berpikir dan keruntutan jawaban]
+    * **Solusi & Problem-Solving:** [Analisis kualitas solusi yang ditawarkan]
+    * **Indikasi Integritas/Etika (jika relevan):** [Apakah ada indikasi positif/negatif dari jawaban?]
+
+    **3. Analisis Jejak Digital (OSINT):**
+    * **Temuan Signifikan:** [Ringkasan temuan OSINT. Apakah ada informasi relevan (positif/negatif/netral)?]
+    * **Konsistensi dengan CV:** [Apakah temuan OSINT mendukung/bertentangan dengan CV?]
+
+    **4. SKOR POTENSI (Estimasi AI):**
+    * **Skor Kualifikasi (CV):** [Angka 1-100] / 100
+    * **Skor Nalar & Solusi (Jawaban):** [Angka 1-100] / 100
+    * **SKOR TOTAL POTENSI:** [HITUNG RATA-RATA DUA SKOR DI ATAS] / 100 
+
+    **5. REKOMENDASI KELAYAKAN:**
+    [Pilih salah satu: **Sangat Direkomendasikan** / **Direkomendasikan** / **Dipertimbangkan (dengan catatan)** / **Butuh Pengembangan Signifikan**]
+    * **Justifikasi Singkat:** [1 kalimat alasan rekomendasi Anda]
+
+    **6. Rekomendasi Pembelajaran (Jika < Direkomendasikan):**
+    [Jika rekomendasi BUKAN 'Sangat Direkomendasikan' atau 'Direkomendasikan', berikan 1-2 link relevan di bawah ini. Jika sudah direkomendasikan, tulis "Tidak diperlukan."]
+    * [Contoh: Untuk mempertajam analisis kebijakan: https://asn.futureskills.id/fs]
+    * [Contoh: Pelajari standar SNI terkait: https://elearning.bsn.go.id/]
+
+    **================ AKHIR PROFIL ================**
+    """
     
-    if provider == 'gemini': result = call_gemini_api(prompt)
-    else: result = call_byteplus_api(prompt, "Anda adalah AI Grader BKN.")
+    if provider == 'gemini': result_text = call_gemini_api(prompt)
+    else: result_text = call_byteplus_api(prompt, "Anda adalah AI Grader BKN yang objektif dan teliti.")
     
-    # Parsing Skor (Simulasi Sederhana)
-    skor_potensi_final = 50 # Default
-    try:
-        # Cari baris yang mengandung "Total Skor Potensi:"
-        for line in result.splitlines():
-             if "total skor potensi:" in line.lower():
-                 # Ekstrak angka setelah ':'
-                 skor_str = line.split(":")[-1].strip()
-                 skor_potensi_final = int(skor_str)
-                 break
-    except:
-        pass # Biarkan default jika parsing gagal
+    # Parsing Skor Total Potensi (Lebih Robust)
+    skor_potensi_final = parse_score(result_text, "SKOR TOTAL POTENSI")
         
     return jsonify({
-        "grading_result": result, 
-        "skor_potensi": skor_potensi_final # Kirim skor terpisah
+        "grading_result": result_text, 
+        "skor_potensi": skor_potensi_final 
     })
 
-# --- MODUL 2: SELAYAR (Alur Baru) ---
+# --- MODUL 2: SELAYAR ---
 @app.route('/api/selayar/osint-sentiment', methods=['POST'])
 def selayar_osint_sentiment():
-    data = request.json
-    program_kerja, provider = data.get('program', 'Pelayanan Publik'), data.get('provider', 'byteplus')
+    # ... (kode sama seperti V2.1) ...
+    data = request.json; program_kerja, provider = data.get('program', 'Pelayanan Publik'), data.get('provider', 'byteplus')
     app.logger.info(f"SELAYAR (OSINT): Dipicu. Program: {program_kerja}, Provider: {provider}")
     osint_articles = run_osint_analysis(program_kerja)
     if not osint_articles: return jsonify({"error": "Gagal menjalankan OSINT"}), 500
     osint_snippets = "\n".join([f"- {a['snippet']}" for a in osint_articles if a['snippet']])
-    prompt = f"Anda adalah AI Analis Sentimen Publik...\nBerdasarkan cuplikan berita (OSINT) berikut tentang \"{program_kerja}\":\n---\n{osint_snippets}\n---\nTugas: Berikan analisis sentimen singkat (Positif/Negatif/Netral) dan 1 kalimat ringkasan mengapa."
-    
+    prompt = f"Anda AI Analis Sentimen Publik...\nOSINT Snippets tentang \"{program_kerja}\":\n---\n{osint_snippets}\n---\nTugas: Analisis sentimen (Positif/Negatif/Netral) & 1 kalimat ringkasan."
     if provider == 'gemini': sentiment_summary = call_gemini_api(prompt)
     else: sentiment_summary = call_byteplus_api(prompt, "Anda adalah analis sentimen publik.")
     return jsonify({"program": program_kerja, "sentiment_summary": sentiment_summary, "articles": osint_articles})
 
 @app.route('/api/selayar/analyze-skp', methods=['POST'])
 def selayar_analyze_skp():
+    # --- PROMPT & PARSING BARU ---
     if 'file_skp' not in request.files: return jsonify({"error": "File SKP tidak terdeteksi"}), 400
     file_skp, provider = request.files['file_skp'], request.form.get('provider', 'gemini')
-    filename = secure_filename(file_skp.filename)
-    file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-    file_skp.save(file_path)
-    app.logger.info(f"SELAYAR (SKP): Analyze Artifact dipicu. File: {filename}")
-    doc_text = extract_text_from_file(file_path)
-    os.remove(file_path)
-    if not doc_text: return jsonify({"error": "Gagal membaca teks dari file SKP"}), 500
+    filename = secure_filename(file_skp.filename); file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename); file_skp.save(file_path)
+    app.logger.info(f"SELAYAR (SKP): Analyze Artifact. File: {filename}")
+    doc_text = extract_text_from_file(file_path); os.remove(file_path)
+    if not doc_text: return jsonify({"error": "Gagal membaca teks SKP"}), 500
 
-    prompt = f"Anda adalah AI Analis Kinerja ASN...\nBerdasarkan dokumen SKP/Laporan Kinerja berikut:\n---\n{doc_text[:4000]}\n---\nAnalisis dan berikan poin-poin berikut (gunakan **bold** dan list):\n**1. Ringkasan Kontribusi Nyata:**\n* [Kontribusi 1]\n* [Kontribusi 2]\n**2. Analisis Pencapaian Target:**\n* [Analisis]\n**3. Skor Kinerja (Estimasi AI):**\n* [Skor / 100]\n**4. Saran Peningkatan (Otomatis):**\n* [Saran 1]"
+    prompt = f"""
+    Anda adalah AI Analis Kinerja ASN yang objektif dan kritis.
+    Berdasarkan dokumen SKP/Laporan Kinerja berikut:
+    ---
+    {doc_text[:9000]}
+    ---
+    TUGAS: Analisis dan berikan poin-poin berikut (gunakan **bold** dan list):
     
-    if provider == 'gemini': result = call_gemini_api(prompt)
-    else: result = call_byteplus_api(prompt, "Anda adalah AI Analis Kinerja ASN.")
+    **1. Ringkasan Kontribusi & Aktivitas Utama:**
+    * [Kontribusi/Aktivitas 1]
+    * [Kontribusi/Aktivitas 2]
+    * [Kontribusi/Aktivitas 3 (jika ada)]
     
-    # Parsing Skor Kinerja (Simulasi)
-    skor_kinerja_final = 50
-    try:
-        for line in result.splitlines():
-             if "skor kinerja" in line.lower() or "skor / 100" in line.lower():
-                 skor_str = line.split(":")[-1].split("/")[0].strip()
-                 skor_kinerja_final = int(skor_str)
-                 break
-    except:
-        pass
+    **2. Analisis Pencapaian Target Kinerja:**
+    * [Analisis singkat apakah target utama tercapai/melebihi/tidak tercapai berdasarkan data di dokumen]
+
+    **3. SKOR KINERJA (Estimasi AI):**
+    * [Angka 1-100] / 100 (berdasarkan bukti pencapaian & kontribusi)
+
+    **4. Saran Peningkatan Konstruktif:**
+    * [Berikan 1 saran spesifik dan actionable untuk pengembangan pegawai]
+    """
+    
+    if provider == 'gemini': result_text = call_gemini_api(prompt)
+    else: result_text = call_byteplus_api(prompt, "Anda adalah AI Analis Kinerja ASN yang objektif.")
+    
+    # Parsing Skor Kinerja (Lebih Robust)
+    skor_kinerja_final = parse_score(result_text, "SKOR KINERJA")
         
     return jsonify({
-        "artifact_analysis": result, 
-        "skor_kinerja": skor_kinerja_final # Kirim skor terpisah
+        "artifact_analysis": result_text, 
+        "skor_kinerja": skor_kinerja_final 
     })
 
-# --- MODUL 3: NAKHODA (Sama seperti V2) ---
-# ... (Semua fungsi NAKHODA: analyze_graph, get_graph, load_custom_graph, simulate_move tetap sama persis seperti V2) ...
+# --- MODUL 3: NAKHODA (Tidak Berubah dari V2.1) ---
+# ... (Semua fungsi NAKHODA: analyze_graph, get_graph, load_custom_graph, simulate_move tetap sama persis seperti sebelumnya) ...
 # ... (Pastikan Anda menyalin SEMUA fungsi Nakhoda dari app.py sebelumnya ke sini) ...
 def analyze_graph(pegawai_list, kolaborasi_list):
     G = nx.Graph()
     for p in pegawai_list:
-        potensi = p.get('skor_potensi', 50)
-        kinerja = p.get('skor_kinerja', 50)
+        potensi = p.get('skor_potensi', 50); kinerja = p.get('skor_kinerja', 50)
         combined_score = (kinerja * 0.6) + (potensi * 0.4)
-        G.add_node(p['id'], label=p['nama'], unit=p['unit'], jabatan=p['jabatan'], score=combined_score)
+        G.add_node(p['id'], label=p.get('nama','N/A'), unit=p.get('unit','N/A'), jabatan=p.get('jabatan','N/A'), score=combined_score)
     for k in kolaborasi_list:
-        if G.has_node(k['source']) and G.has_node(k['target']):
-            G.add_edge(k['source'], k['target'], label=k['project'])
+        if G.has_node(k.get('source')) and G.has_node(k.get('target')):
+            G.add_edge(k['source'], k['target'], label=k.get('project',''))
     if not G.nodes: return {"nodes": [], "edges": [], "metrics": {"total_pegawai": 0, "total_kolaborasi": 0, "avg_effectiveness": 0, "num_silos": 0}}
     centrality = nx.degree_centrality(G)
     num_silos = nx.number_connected_components(G)
     total_effectiveness_score = sum((G.nodes[n].get('score', 50) * (1 + centrality.get(n, 0))) for n in G.nodes())
     nodes_for_reactflow = []
     for node in G.nodes(data=True):
-        node_id, node_data = node
-        node_score = node_data.get('score', 50)
-        background_color = '#90EE90' if node_score > 80 else ('#FFD700' if node_score > 60 else '#F08080')
-        nodes_for_reactflow.append({"id": node_id, "position": {"x": 0, "y": 0},"data": {"label": f"{node_data['label']} ({node_data['unit']})\nSkor: {node_score:.0f}"},"style": { "background": background_color, "border": "1px solid #333", "whiteSpace": "pre-line", "textAlign": "center"}})
+        node_id, node_data = node; node_score = node_data.get('score', 50)
+        bg = '#90EE90' if node_score > 80 else ('#FFD700' if node_score > 60 else '#F08080')
+        nodes_for_reactflow.append({"id": node_id, "position": {"x": 0, "y": 0},"data": {"label": f"{node_data.get('label','N/A')} ({node_data.get('unit','N/A')})\nSkor: {node_score:.0f}"},"style": { "background": bg, "border": "1px solid #333", "whiteSpace": "pre-line", "textAlign": "center"}})
     edges_for_reactflow = [{"id": f"e-{e[0]}-{e[1]}", "source": e[0], "target": e[1], "label": e[2].get('label', ''), "animated": True} for e in G.edges(data=True)]
-    metrics = {"total_pegawai": G.number_of_nodes(), "total_kolaborasi": G.number_of_edges(), "avg_effectiveness": total_effectiveness_score / G.number_of_nodes(), "num_silos": num_silos}
+    metrics = {"total_pegawai": G.number_of_nodes(), "total_kolaborasi": G.number_of_edges(), "avg_effectiveness": (total_effectiveness_score / G.number_of_nodes()) if G.number_of_nodes() > 0 else 0, "num_silos": num_silos}
     return {"nodes": nodes_for_reactflow, "edges": edges_for_reactflow, "metrics": metrics}
+
 
 @app.route('/api/nakhoda/get-graph', methods=['GET'])
 def get_graph():

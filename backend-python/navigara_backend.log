@@ -55,3 +55,48 @@
 2025-10-25 12:54:25,998 INFO <module>(37) Server NAVIGARA (Python) v2.1 (Google OSINT) Dimulai...
 2025-10-25 12:54:25,999 INFO <module>(54) Klien API Gemini dikonfigurasi. Model: gemini-2.5-flash
 2025-10-25 12:54:26,003 INFO <module>(66) Klien Google Custom Search berhasil dikonfigurasi.
+2025-10-25 13:08:28,972 INFO <module>(37) Server NAVIGARA (Python) v2.1 (Google OSINT) Dimulai...
+2025-10-25 13:08:28,973 INFO <module>(54) Klien API Gemini dikonfigurasi. Model: gemini-2.5-flash
+2025-10-25 13:08:28,980 INFO <module>(66) Klien Google Custom Search berhasil dikonfigurasi.
+2025-10-25 13:10:31,249 INFO lentera_generate_case(151) LENTERA (Tahap 1): Generate Case. File: CV_Citra_Lestari.pdf, Jabatan: Analis Kebijakan Ahli Madya
+2025-10-25 13:10:33,621 ERROR call_byteplus_api(114) Error API Byteplus: 401 Client Error: Unauthorized for url: https://ark.ap-southeast.bytepluses.com/api/v3/chat/completions
+2025-10-25 13:33:16,878 INFO <module>(37) Server NAVIGARA (Python) v2.1 (Google OSINT) Dimulai...
+2025-10-25 13:33:16,879 INFO <module>(54) Klien API Gemini dikonfigurasi. Model: gemini-2.5-flash
+2025-10-25 13:33:16,889 INFO <module>(66) Klien Google Custom Search berhasil dikonfigurasi.
+2025-10-25 13:33:39,467 INFO lentera_generate_case(151) LENTERA (Tahap 1): Generate Case. File: scan_sqlmap_16052025.txt, Jabatan: Analis Kebijakan Ahli Madya
+2025-10-25 13:33:41,344 ERROR call_byteplus_api(114) Error API Byteplus: 401 Client Error: Unauthorized for url: https://ark.ap-southeast.bytepluses.com/api/v3/chat/completions
+2025-10-25 13:34:09,885 INFO lentera_generate_case(151) LENTERA (Tahap 1): Generate Case. File: cv.pdf, Jabatan: Analis Kebijakan Ahli Madya
+2025-10-25 13:34:09,943 ERROR extract_text_from_file(90) Gagal mengekstrak file uploads\cv.pdf: Failed to open file 'uploads\\cv.pdf'.
+2025-10-25 13:37:36,412 INFO lentera_generate_case(151) LENTERA (Tahap 1): Generate Case. File: scan_sqlmap_16052025.txt, Jabatan: Analis Kebijakan Ahli Madya
+2025-10-25 13:37:36,748 ERROR call_gemini_api(100) Error API Gemini: 400 API key not valid. Please pass a valid API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key not valid. Please pass a valid API key."
+]
+2025-10-25 13:44:00,650 INFO <module>(37) Server NAVIGARA (Python) v2.1 (Google OSINT) Dimulai...
+2025-10-25 13:44:00,651 INFO <module>(54) Klien API Gemini dikonfigurasi. Model: gemini-2.5-flash
+2025-10-25 13:44:00,656 INFO <module>(66) Klien Google Custom Search berhasil dikonfigurasi.
+2025-10-25 13:44:13,779 INFO lentera_generate_case(151) LENTERA (Tahap 1): Generate Case. File: cv.pdf, Jabatan: Analis Kebijakan Ahli Madya
+2025-10-25 13:44:13,786 ERROR extract_text_from_file(90) Gagal mengekstrak file uploads\cv.pdf: Failed to open file 'uploads\\cv.pdf'.
+2025-10-25 13:44:36,576 INFO lentera_generate_case(151) LENTERA (Tahap 1): Generate Case. File: cv.pdf, Jabatan: Analis Kebijakan Ahli Madya
+2025-10-25 13:44:36,581 ERROR extract_text_from_file(90) Gagal mengekstrak file uploads\cv.pdf: Failed to open file 'uploads\\cv.pdf'.
+2025-10-25 13:46:33,690 INFO lentera_generate_case(151) LENTERA (Tahap 1): Generate Case. File: CV_Citra_Lestari.pdf, Jabatan: Analis Kebijakan Ahli Madya
+2025-10-25 13:54:47,235 INFO <module>(37) Server NAVIGARA (Python) v2.1 (Google OSINT) Dimulai...
+2025-10-25 13:54:47,236 INFO <module>(54) Klien API Gemini dikonfigurasi. Model: gemini-2.5-flash
+2025-10-25 13:54:47,249 INFO <module>(66) Klien Google Custom Search berhasil dikonfigurasi.
+2025-10-25 14:26:59,704 INFO lentera_generate_case(151) LENTERA (Tahap 1): Generate Case. File: CV_Citra_Lestari.pdf, Jabatan: Analis Kebijakan Ahli Muda
+2025-10-25 14:28:31,085 INFO lentera_grade_final(167) LENTERA (Tahap 2): Grade Final dipicu. Provider: gemini
+2025-10-25 14:28:31,086 INFO run_osint_analysis(119) OSINT Engine: Menjalankan kueri Google untuk '"Kandidat" ASN OR PNS OR BKN'
+2025-10-25 15:19:33,405 INFO <module>(37) Server NAVIGARA (Python) v2.1 (Google OSINT) Dimulai...
+2025-10-25 15:19:33,405 INFO <module>(54) Klien API Gemini dikonfigurasi. Model: gemini-2.5-flash
+2025-10-25 15:19:33,410 INFO <module>(66) Klien Google Custom Search berhasil dikonfigurasi.
+2025-10-25 15:19:46,336 INFO lentera_generate_case(151) LENTERA (Tahap 1): Generate Case. File: CV_Citra_Lestari.pdf, Jabatan: Analis Kebijakan Ahli Madya
+2025-10-25 15:20:58,946 INFO lentera_grade_final(167) LENTERA (Tahap 2): Grade Final dipicu. Provider: gemini
+2025-10-25 15:20:58,947 INFO run_osint_analysis(119) OSINT Engine: Menjalankan kueri Google untuk '"Kandidat" ASN OR PNS OR BKN'
+2025-10-25 15:21:53,752 INFO selayar_osint_sentiment(205) SELAYAR (OSINT): Dipicu. Program: Digitalisasi Layanan Pertanahan, Provider: gemini
+2025-10-25 15:21:53,752 INFO run_osint_analysis(119) OSINT Engine: Menjalankan kueri Google untuk 'Digitalisasi Layanan Pertanahan'
+2025-10-25 15:22:05,617 INFO selayar_analyze_skp(222) SELAYAR (SKP): Analyze Artifact dipicu. File: SKP_Budi_Santoso.pdf
