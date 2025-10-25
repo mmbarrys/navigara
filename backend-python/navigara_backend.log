@@ -1,0 +1,45 @@
+2025-10-25 10:53:01,232 INFO <module>(34) Server NAVIGARA (Python) dimulai...
+2025-10-25 10:53:01,242 INFO <module>(45) Klien API Gemini berhasil dikonfigurasi.
+2025-10-25 11:01:32,917 INFO <module>(37) Server NAVIGARA (Python) v2.1 (Google OSINT) Dimulai...
+2025-10-25 11:01:32,917 INFO <module>(54) Klien API Gemini dikonfigurasi. Model: gemini-1.5-flash
+2025-10-25 11:01:32,923 INFO <module>(66) Klien Google Custom Search berhasil dikonfigurasi.
+2025-10-25 11:09:37,541 INFO <module>(37) Server NAVIGARA (Python) v2.1 (Google OSINT) Dimulai...
+2025-10-25 11:09:37,542 INFO <module>(54) Klien API Gemini dikonfigurasi. Model: gemini-1.5-flash
+2025-10-25 11:09:37,550 INFO <module>(66) Klien Google Custom Search berhasil dikonfigurasi.
+2025-10-25 11:14:18,423 INFO <module>(37) Server NAVIGARA (Python) v2.1 (Google OSINT) Dimulai...
+2025-10-25 11:14:18,423 INFO <module>(54) Klien API Gemini dikonfigurasi. Model: gemini-1.5-flash
+2025-10-25 11:14:18,431 INFO <module>(66) Klien Google Custom Search berhasil dikonfigurasi.
+2025-10-25 11:16:00,428 INFO <module>(37) Server NAVIGARA (Python) v2.1 (Google OSINT) Dimulai...
+2025-10-25 11:16:00,429 INFO <module>(54) Klien API Gemini dikonfigurasi. Model: gemini-1.5-flash
+2025-10-25 11:16:00,438 INFO <module>(66) Klien Google Custom Search berhasil dikonfigurasi.
+2025-10-25 11:25:19,798 INFO <module>(37) Server NAVIGARA (Python) v2.1 (Google OSINT) Dimulai...
+2025-10-25 11:25:19,799 INFO <module>(54) Klien API Gemini dikonfigurasi. Model: gemini-1.5-flash
+2025-10-25 11:25:19,809 INFO <module>(66) Klien Google Custom Search berhasil dikonfigurasi.
+2025-10-25 11:36:13,329 INFO <module>(37) Server NAVIGARA (Python) v2.1 (Google OSINT) Dimulai...
+2025-10-25 11:36:13,330 INFO <module>(54) Klien API Gemini dikonfigurasi. Model: gemini-1.5-flash
+2025-10-25 11:36:13,335 INFO <module>(66) Klien Google Custom Search berhasil dikonfigurasi.
+2025-10-25 11:37:25,361 INFO <module>(37) Server NAVIGARA (Python) v2.1 (Google OSINT) Dimulai...
+2025-10-25 11:37:25,361 INFO <module>(54) Klien API Gemini dikonfigurasi. Model: gemini-1.5-flash
+2025-10-25 11:37:25,366 INFO <module>(66) Klien Google Custom Search berhasil dikonfigurasi.
+2025-10-25 11:40:08,161 INFO <module>(37) Server NAVIGARA (Python) v2.1 (Google OSINT) Dimulai...
+2025-10-25 11:40:08,161 INFO <module>(54) Klien API Gemini dikonfigurasi. Model: gemini-1.5-flash
+2025-10-25 11:40:08,170 INFO <module>(66) Klien Google Custom Search berhasil dikonfigurasi.
+2025-10-25 11:42:52,083 INFO <module>(37) Server NAVIGARA (Python) v2.1 (Google OSINT) Dimulai...
+2025-10-25 11:42:52,084 INFO <module>(54) Klien API Gemini dikonfigurasi. Model: gemini-1.5-flash
+2025-10-25 11:42:52,091 INFO <module>(66) Klien Google Custom Search berhasil dikonfigurasi.
+2025-10-25 11:44:42,765 INFO <module>(37) Server NAVIGARA (Python) v2.1 (Google OSINT) Dimulai...
+2025-10-25 11:44:42,765 INFO <module>(54) Klien API Gemini dikonfigurasi. Model: gemini-1.5-flash
+2025-10-25 11:44:42,771 INFO <module>(66) Klien Google Custom Search berhasil dikonfigurasi.
+2025-10-25 11:45:25,265 INFO lentera_generate_case(151) LENTERA (Tahap 1): Generate Case. File: CV_Citra_Lestari.pdf, Jabatan: Analis Kebijakan Ahli Madya
+2025-10-25 11:45:26,080 ERROR call_gemini_api(100) Error API Gemini: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-10-25 11:49:30,948 INFO <module>(37) Server NAVIGARA (Python) v2.1 (Google OSINT) Dimulai...
+2025-10-25 11:49:30,949 INFO <module>(54) Klien API Gemini dikonfigurasi. Model: gemini-1.5-flash
+2025-10-25 11:49:30,957 INFO <module>(66) Klien Google Custom Search berhasil dikonfigurasi.
+2025-10-25 11:57:52,130 INFO lentera_generate_case(151) LENTERA (Tahap 1): Generate Case. File: CV_Citra_Lestari.pdf, Jabatan: Analis Kebijakan Ahli Madya
+2025-10-25 11:57:52,516 ERROR call_gemini_api(100) Error API Gemini: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-10-25 11:58:16,498 INFO <module>(37) Server NAVIGARA (Python) v2.1 (Google OSINT) Dimulai...
+2025-10-25 11:58:16,500 INFO <module>(54) Klien API Gemini dikonfigurasi. Model: gemini-2.5-flash
+2025-10-25 11:58:16,519 INFO <module>(66) Klien Google Custom Search berhasil dikonfigurasi.
+2025-10-25 11:58:26,632 INFO lentera_generate_case(151) LENTERA (Tahap 1): Generate Case. File: CV_Citra_Lestari.pdf, Jabatan: Analis Kebijakan Ahli Madya
+2025-10-25 11:59:23,540 INFO selayar_osint_sentiment(205) SELAYAR (OSINT): Dipicu. Program: Digitalisasi Layanan Pertanahan, Provider: gemini
+2025-10-25 11:59:23,540 INFO run_osint_analysis(119) OSINT Engine: Menjalankan kueri Google untuk 'Digitalisasi Layanan Pertanahan'
