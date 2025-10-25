@@ -100,3 +100,26 @@ message: "API key not valid. Please pass a valid API key."
 2025-10-25 15:21:53,752 INFO selayar_osint_sentiment(205) SELAYAR (OSINT): Dipicu. Program: Digitalisasi Layanan Pertanahan, Provider: gemini
 2025-10-25 15:21:53,752 INFO run_osint_analysis(119) OSINT Engine: Menjalankan kueri Google untuk 'Digitalisasi Layanan Pertanahan'
 2025-10-25 15:22:05,617 INFO selayar_analyze_skp(222) SELAYAR (SKP): Analyze Artifact dipicu. File: SKP_Budi_Santoso.pdf
+2025-10-25 15:25:08,311 INFO <module>(37) Server NAVIGARA (Python) v2.2 (Enhanced Profile) Dimulai...
+2025-10-25 15:25:08,311 INFO <module>(53) Klien API Gemini dikonfigurasi. Model: gemini-2.5-flash
+2025-10-25 15:25:08,315 INFO <module>(61) Klien Google Custom Search berhasil dikonfigurasi.
+2025-10-25 15:30:31,000 INFO <module>(37) Server NAVIGARA (Python) v2.2 (Enhanced Profile) Dimulai...
+2025-10-25 15:30:31,000 INFO <module>(53) Klien API Gemini dikonfigurasi. Model: gemini-2.5-flash
+2025-10-25 15:30:31,003 INFO <module>(61) Klien Google Custom Search berhasil dikonfigurasi.
+2025-10-25 17:04:32,328 INFO <module>(37) Server NAVIGARA (Python) v2.2 (Enhanced Profile) Dimulai...
+2025-10-25 17:04:32,329 INFO <module>(53) Klien API Gemini dikonfigurasi. Model: gemini-2.5-flash
+2025-10-25 17:04:32,333 INFO <module>(61) Klien Google Custom Search berhasil dikonfigurasi.
+2025-10-25 17:05:00,013 INFO lentera_generate_case(136) LENTERA (Tahap 1): Generate Case. File: CV_Citra_Lestari.pdf, Jabatan: Analis Kebijakan Ahli Madya
+2025-10-25 17:07:11,399 INFO lentera_generate_case(136) LENTERA (Tahap 1): Generate Case. File: CV_Citra_Lestari.pdf, Jabatan: Analis Kebijakan Ahli Madya
+2025-10-25 17:49:23,027 INFO lentera_generate_case(136) LENTERA (Tahap 1): Generate Case. File: Form_6.1._CV_Galih_Wening_W._M._-_Oktober_2025.pdf, Jabatan: Sandiman Ahli Muda
+2025-10-25 18:01:33,219 INFO lentera_grade_final(150) LENTERA (Tahap 2): Grade Final. Provider: gemini
+2025-10-25 18:01:33,225 INFO run_osint_analysis(96) OSINT Engine: Google Search '"Kompetensi" ASN OR PNS OR BKN'
+2025-10-25 18:05:15,371 INFO selayar_osint_sentiment(237) SELAYAR (OSINT): Dipicu. Program: Sertifikasi Keamanan Produk TI, Provider: gemini
+2025-10-25 18:05:15,371 INFO run_osint_analysis(96) OSINT Engine: Google Search 'Sertifikasi Keamanan Produk TI'
+2025-10-25 18:05:38,510 INFO selayar_osint_sentiment(237) SELAYAR (OSINT): Dipicu. Program: Sertifikasi Keamanan Produk TI, Provider: gemini
+2025-10-25 18:05:38,510 INFO run_osint_analysis(96) OSINT Engine: Google Search 'Sertifikasi Keamanan Produk TI'
+2025-10-25 18:06:56,553 INFO selayar_analyze_skp(252) SELAYAR (SKP): Analyze Artifact. File: CKP_Triwulan_2_-_Wening.pdf
+2025-10-25 18:14:16,332 INFO simulate_move(346) Modul NAKHODA: Simulasi pemindahan manual-0-1761390789413 ke Kementerian Keuangan
+2025-10-25 18:14:16,336 INFO simulate_move(358) Simulasi berhasil.
+2025-10-25 18:17:00,384 INFO simulate_move(346) Modul NAKHODA: Simulasi pemindahan manual-0-1761390789413 ke Kementerian Keuangan
+2025-10-25 18:17:00,384 INFO simulate_move(358) Simulasi berhasil.

@@ -561,3 +561,59 @@ button:disabled { background-color: var(--color-border); color: var(--color-mute
   background-color: var(--color-border);
   color: var(--color-foreground);
 }
+
+/* --- Tambahan Styling untuk Profile Card --- */
+.ai-output-container h3 {
+  font-size: 1.2rem !important; /* Pastikan heading atribut jelas */
+  margin-top: 1.5rem !important;
+  color: var(--color-foreground) !important;
+}
+
+.ai-output-container ul {
+  list-style: none; /* Hapus bullet default */
+  padding-left: 0;
+}
+
+.ai-output-container li strong { /* Label Atribut */
+  display: inline-block;
+  min-width: 200px; /* Jaga lebar label konsisten */
+  color: var(--color-muted-foreground) !important; /* Warna label lebih soft */
+  font-weight: 500 !important;
+}
+
+.ai-output-container li em { /* Justifikasi */
+  display: block;
+  font-size: 0.85rem;
+  color: var(--color-muted-foreground) !important;
+  margin-left: 10px;
+  margin-top: 3px;
+  font-style: italic !important;
+}
+
+.ai-output-container li::before {
+    content: ''; /* Hapus bullet default yang mungkin muncul */
+}
+
+/* Style untuk skor 1-7 */
+.ai-output-container strong + span { /* Angka skor setelah bold */
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    margin-left: 5px;
+    margin-right: 2px;
+}
+
+/* Style Rekomendasi */
+.ai-output-container p strong:first-child { /* Target Rekomendasi Kelayakan */
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: var(--radius);
+    margin-right: 5px;
+    font-size: 0.9rem;
+    color: var(--color-foreground); /* Teks terang */
+}
+/* Warna background rekomendasi (manual check di JS nanti) */
+.recommendation-sangat { background-color: var(--color-success); }
+.recommendation-direkomendasikan { background-color: var(--color-primary); }
+.recommendation-dipertimbangkan { background-color: var(--color-warning); color: var(--color-background) !important; } /* Teks gelap */
+.recommendation-butuh { background-color: var(--color-error); }
