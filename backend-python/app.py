@@ -97,16 +97,40 @@ def run_osint_analysis(query):
 
 # --- Helper: Parsing Skor (Sama) ---
 def parse_score(text, keyword, default=50):
-    """Mencari keyword dalam teks dan mengekstrak angka setelahnya."""
+    """Mencari keyword dalam teks dan mengekstrak angka setelahnya, dengan error handling."""
     try:
-        # Cari pola seperti "Keyword: [angka]" atau "Keyword [angka]" atau "[angka] / 100"
-        match = re.search(rf"{keyword}\s*[:\-]*\s*(\d+)", text, re.IGNORECASE)
-        if match:
-            return int(match.group(1))
-        # Coba cari pola skor / 100 jika keyword ada di baris yg sama
-        match_fraction = re.search(rf".*{keyword}.*?(\d+)\s*/\s*100", text, re.IGNORECASE | re.DOTALL)
+        # 1. Cari pola "Keyword: [angka]" atau "Keyword [angka]"
+        match_direct = re.search(rf"{keyword}\s*[:\-]*\s*(\d+)", text, re.IGNORECASE)
+        if match_direct:
+            score = int(match_direct.group(1))
+            # Batasi skor antara 0-100 (atau 1-7 jika perlu nanti)
+            return max(0, min(100, score)) 
+            
+        # 2. Jika tidak ketemu, cari pola "[angka] / 100" di baris yang sama dengan keyword
+        #    Regex ini mencari keyword, lalu apa saja (non-greedy), lalu angka, lalu /100
+        match_fraction = re.search(rf"{keyword}.*?(\d+)\s*/\s*100", text, re.IGNORECASE | re.DOTALL)
         if match_fraction:
-            return int(match_fraction.group(1))
+            score = int(match_fraction.group(1))
+            return max(0, min(100, score))
+            
+        # 3. Jika tidak ketemu juga, coba cari skor 1-7 (untuk profil card)
+        match_scale_7 = re.search(rf"{keyword}\s*[:\-]*\s*(\d)\s*/\s*7", text, re.IGNORECASE)
+        if match_scale_7:
+             # Kita tetap kembalikan skor 1-7 agar konsisten dengan prompt baru
+             score_7 = int(match_scale_7.group(1))
+             return max(1, min(7, score_7)) # Kembalikan skala 1-7
+
+        # Jika semua pola gagal, log peringatan tapi jangan error
+        app.logger.warning(f"Tidak dapat menemukan pola skor untuk '{keyword}' dalam teks.")
+        return default # Kembalikan default jika tidak ada yang cocok
+
+    except ValueError:
+        # Jika konversi int() gagal
+        app.logger.error(f"Error konversi skor menjadi angka untuk '{keyword}'.")
+        return default
+    except Exception as e:
+        # Tangkap error lain saat parsing
+        app.logger.error(f"Error tidak terduga saat parsing skor untuk '{keyword}': {str(e)}")
         return default
 
 # --- Helper BARU: Generate PDF ---
@@ -402,6 +426,36 @@ def selayar_analyze_skp():
         "artifact_analysis": result_text, # Teks Markdown lengkap
         "skor_kinerja": skor_kinerja_final # Skor numerik 0-100
     })
+
+# --- ENDPOINT EXPORT PDF SELAYAR ---
+@app.route('/api/selayar/export-pdf', methods=['POST'])
+def export_selayar_pdf():
+    data = request.json
+    markdown_profile = data.get('profile_markdown', '')
+    nama_file_skp = data.get('nama_file_skp', 'SKP_Pegawai') # Ambil nama file asli
+    
+    if not markdown_profile:
+        return jsonify({"error": "Data profil SKP tidak ditemukan"}), 400
+        
+    app.logger.info(f"SELAYAR: Memulai generate PDF untuk {nama_file_skp}")
+    
+    # Tambahkan Judul ke Markdown sebelum generate PDF
+    full_markdown = f"# Profil Kinerja SELAYAR\n\n{markdown_profile}"
+    
+    pdf_buffer = generate_pdf_from_markdown(full_markdown) # Panggil helper yang sama
+    
+    if pdf_buffer:
+        safe_filename = secure_filename(f"Profil_Selayar_{nama_file_skp.replace('.pdf','').replace('.txt','')}.pdf")
+        return send_file(
+            pdf_buffer,
+            mimetype='application/pdf',
+            as_attachment=True,
+            download_name=safe_filename
+        )
+    else:
+        app.logger.error("Gagal membuat PDF buffer untuk Selayar.")
+        return jsonify({"error": "Gagal mengenerate PDF SKP"}), 500
+# ------------------------------------
 
 # --- MODUL 3: NAKHODA (Sama seperti V2.1) ---
 def analyze_graph(pegawai_list, kolaborasi_list):
