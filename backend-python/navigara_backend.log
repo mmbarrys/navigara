@@ -123,3 +123,457 @@ message: "API key not valid. Please pass a valid API key."
 2025-10-25 18:14:16,336 INFO simulate_move(358) Simulasi berhasil.
 2025-10-25 18:17:00,384 INFO simulate_move(346) Modul NAKHODA: Simulasi pemindahan manual-0-1761390789413 ke Kementerian Keuangan
 2025-10-25 18:17:00,384 INFO simulate_move(358) Simulasi berhasil.
+2025-10-25 20:36:14,765 INFO <module>(29) Server NAVIGARA (Python) v3.0 (Profile Cards & PDF) Dimulai...
+2025-10-25 20:36:14,765 INFO <module>(43) Gemini OK: gemini-1.5-flash
+2025-10-25 20:36:14,828 INFO <module>(47) Google Search OK.
+2025-10-25 20:36:24,162 INFO lentera_generate_case(204) LENTERA (Tahap 1): Generate Case. Jabatan: Analis Kebijakan Ahli Madya, CV: CV_Citra_Lestari.pdf
+2025-10-25 20:36:24,597 ERROR call_gemini_api(66) Error API Gemini: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-10-25 20:38:17,627 INFO lentera_generate_case(204) LENTERA (Tahap 1): Generate Case. Jabatan: Analis Kebijakan Ahli Madya, CV: CV_Citra_Lestari.pdf
+2025-10-25 20:38:17,757 ERROR call_gemini_api(66) Error API Gemini: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-10-25 20:38:54,347 INFO <module>(29) Server NAVIGARA (Python) v3.0 (Profile Cards & PDF) Dimulai...
+2025-10-25 20:38:54,347 INFO <module>(43) Gemini OK: gemini-2.5-flash
+2025-10-25 20:38:54,352 INFO <module>(47) Google Search OK.
+2025-10-25 20:39:06,344 INFO lentera_generate_case(204) LENTERA (Tahap 1): Generate Case. Jabatan: Analis Kebijakan Ahli Madya, CV: CV_Citra_Lestari.pdf
+2025-10-25 20:40:42,063 INFO lentera_grade_final(220) LENTERA (Tahap 2): Grade Final. Provider: gemini
+2025-10-25 20:40:42,063 INFO run_osint_analysis(81) OSINT Engine: Google Search '"Kandidat" ASN OR PNS OR BKN'
+2025-10-25 20:41:06,740 WARNING parse_score(124) Tidak dapat menemukan pola skor untuk 'Kualifikasi & Pengetahuan' dalam teks.
+2025-10-25 20:41:06,742 WARNING parse_score(124) Tidak dapat menemukan pola skor untuk 'Nalar & Logika' dalam teks.
+2025-10-25 20:41:06,744 WARNING parse_score(124) Tidak dapat menemukan pola skor untuk 'Problem Solving' dalam teks.
+2025-10-25 20:41:06,745 WARNING parse_score(124) Tidak dapat menemukan pola skor untuk 'Jejak Digital' dalam teks.
+2025-10-25 20:41:06,748 WARNING parse_score(124) Tidak dapat menemukan pola skor untuk 'Potensi Integritas' dalam teks.
+2025-10-25 20:42:11,869 INFO export_lentera_pdf(312) LENTERA: Memulai generate PDF untuk ** Citra Lestari
+2025-10-25 20:43:08,447 INFO selayar_osint_sentiment(333) SELAYAR (OSINT): Dipicu. Program: Layanan sertifikasi peralatan sandi, Provider: gemini
+2025-10-25 20:43:08,448 INFO run_osint_analysis(81) OSINT Engine: Google Search 'Layanan sertifikasi peralatan sandi'
+2025-10-25 20:43:33,760 INFO selayar_analyze_skp(371) SELAYAR (SKP): Analyze Artifact. File: SKP_-_Tina_Wahyuningtias.pdf
+2025-10-25 20:43:46,563 WARNING parse_score(124) Tidak dapat menemukan pola skor untuk 'Pencapaian Target' dalam teks.
+2025-10-25 20:43:46,566 WARNING parse_score(124) Tidak dapat menemukan pola skor untuk 'Kontribusi & Inisiatif' dalam teks.
+2025-10-25 20:43:46,568 WARNING parse_score(124) Tidak dapat menemukan pola skor untuk 'Kualitas Pelaporan' dalam teks.
+2025-10-25 21:31:15,578 INFO simulate_move(514) Modul NAKHODA: Simulasi pemindahan manual-0-1761402611735 ke Belum Ditempatkan
+2025-10-25 21:31:15,585 INFO simulate_move(526) Simulasi berhasil.
+2025-10-25 23:16:29,103 INFO <module>(54) Server NAVIGARA (Python) v3.0 (Profile Cards & PDF) Dimulai...
+2025-10-25 23:16:29,103 INFO <module>(68) Gemini OK: gemini-2.5-flash
+2025-10-25 23:16:29,109 INFO <module>(72) Google Search OK.
+2025-10-25 23:25:37,260 INFO <module>(54) Server NAVIGARA (Python) v3.0 (Profile Cards & PDF) Dimulai...
+2025-10-25 23:25:37,261 INFO <module>(68) Gemini OK: gemini-2.5-flash
+2025-10-25 23:25:37,266 INFO <module>(72) Google Search OK.
+2025-10-25 23:31:09,289 INFO <module>(54) Server NAVIGARA (Python) v3.0 (Profile Cards & PDF) Dimulai...
+2025-10-25 23:31:09,289 INFO <module>(68) Gemini OK: gemini-2.5-flash
+2025-10-25 23:31:09,294 INFO <module>(72) Google Search OK.
+2025-10-25 23:37:33,796 INFO <module>(54) Server NAVIGARA (Python) v3.0 (Profile Cards & PDF) Dimulai...
+2025-10-25 23:37:33,797 INFO <module>(68) Gemini OK: gemini-2.5-flash
+2025-10-25 23:37:33,804 INFO <module>(72) Google Search OK.
+2025-10-25 23:40:56,974 INFO <module>(54) Server NAVIGARA (Python) v3.0 (Profile Cards & PDF) Dimulai...
+2025-10-25 23:40:56,974 INFO <module>(68) Gemini OK: gemini-2.5-flash
+2025-10-25 23:40:56,978 INFO <module>(72) Google Search OK.
+2025-10-25 23:45:41,573 INFO <module>(54) Server NAVIGARA (Python) v3.0 (Profile Cards & PDF) Dimulai...
+2025-10-25 23:45:41,574 INFO <module>(68) Gemini OK: gemini-2.5-flash
+2025-10-25 23:45:41,579 INFO <module>(72) Google Search OK.
+2025-10-25 23:49:12,720 INFO get_graph(623) Modul NAKHODA: Mengambil graf awal (dummy_data_v2.json).
+2025-10-25 23:49:12,757 INFO get_graph(623) Modul NAKHODA: Mengambil graf awal (dummy_data_v2.json).
+2025-10-25 23:51:53,727 INFO <module>(54) Server NAVIGARA (Python) v3.0 (Profile Cards & PDF) Dimulai...
+2025-10-25 23:51:53,728 INFO <module>(68) Gemini OK: gemini-2.5-flash
+2025-10-25 23:51:53,731 INFO <module>(72) Google Search OK.
+2025-10-25 23:53:31,670 INFO selayar_osint_sentiment(419) SELAYAR (OSINT): Dipicu. Program: Digitalisasi Layanan Pertanahan, Provider: byteplus
+2025-10-25 23:53:31,670 INFO run_osint_analysis(117) OSINT Engine: Google Search 'Digitalisasi Layanan Pertanahan'
+2025-10-25 23:53:33,845 ERROR call_byteplus_api(113) Error API Byteplus: 401 Client Error: Unauthorized for url: https://ark.ap-southeast.bytepluses.com/api/v3/chat/completions
+2025-10-25 23:53:33,848 WARNING parse_score(160) Tidak dapat menemukan pola skor untuk 'Skor Sentimen' dalam teks.
+2025-10-25 23:53:33,848 ERROR selayar_osint_sentiment(449) Gagal log Selayar-OSINT: name 'sentimen_umum' is not defined
+2025-10-25 23:58:43,872 INFO <module>(54) Server NAVIGARA (Python) v3.0 (Profile Cards & PDF) Dimulai...
+2025-10-25 23:58:43,872 INFO <module>(68) Gemini OK: gemini-2.5-flash
+2025-10-25 23:58:43,879 INFO <module>(72) Google Search OK.
+2025-10-25 23:58:57,411 INFO lentera_generate_case(259) LENTERA (Tahap 1): Generate Case. Jabatan: Analis Kebijakan Ahli Pertama, CV: CV_Citra_Lestari.pdf
+2025-10-26 00:07:57,653 INFO <module>(54) Server NAVIGARA (Python) v3.0 (Profile Cards & PDF) Dimulai...
+2025-10-26 00:07:57,653 INFO <module>(68) Gemini OK: gemini-2.5-flash
+2025-10-26 00:07:57,657 INFO <module>(72) Google Search OK.
+2025-10-26 00:08:24,770 INFO lentera_generate_case(259) LENTERA (Tahap 1): Generate Case. Jabatan: Analis Kebijakan Ahli Pertama, CV: CV_Citra_Lestari.pdf
+2025-10-26 00:10:49,201 INFO lentera_grade_final(272) Request from Origin: None
+2025-10-26 00:10:49,202 ERROR lentera_grade_final(276) LENTERA Grade Final Error: File Jawaban tidak terdeteksi di request.files
+2025-10-26 00:10:50,488 INFO lentera_grade_final(272) Request from Origin: None
+2025-10-26 00:10:50,488 ERROR lentera_grade_final(276) LENTERA Grade Final Error: File Jawaban tidak terdeteksi di request.files
+2025-10-26 00:11:00,844 INFO selayar_osint_sentiment(439) SELAYAR (OSINT): Dipicu. Program: Layanan vaksinasi di Pedesaan, Provider: byteplus
+2025-10-26 00:11:00,845 INFO run_osint_analysis(117) OSINT Engine: Google Search 'Layanan vaksinasi di Pedesaan'
+2025-10-26 00:11:02,958 ERROR call_byteplus_api(113) Error API Byteplus: 401 Client Error: Unauthorized for url: https://ark.ap-southeast.bytepluses.com/api/v3/chat/completions
+2025-10-26 00:11:02,960 WARNING parse_score(160) Tidak dapat menemukan pola skor untuk 'Skor Sentimen' dalam teks.
+2025-10-26 00:11:02,960 ERROR selayar_osint_sentiment(469) Gagal log Selayar-OSINT: name 'sentimen_umum' is not defined
+2025-10-26 00:11:29,361 INFO selayar_analyze_skp(480) SELAYAR (SKP): Analyze Artifact. File: SKP_-_Tina_Wahyuningtias.pdf
+2025-10-26 00:11:29,990 ERROR call_byteplus_api(113) Error API Byteplus: 401 Client Error: Unauthorized for url: https://ark.ap-southeast.bytepluses.com/api/v3/chat/completions
+2025-10-26 00:11:29,992 WARNING parse_score(160) Tidak dapat menemukan pola skor untuk 'Pencapaian Target' dalam teks.
+2025-10-26 00:11:29,992 WARNING parse_score(160) Tidak dapat menemukan pola skor untuk 'Kontribusi & Inisiatif' dalam teks.
+2025-10-26 00:11:29,993 WARNING parse_score(160) Tidak dapat menemukan pola skor untuk 'Kualitas Pelaporan' dalam teks.
+2025-10-26 06:19:42,180 INFO <module>(54) Server NAVIGARA (Python) v3.0 (Profile Cards & PDF) Dimulai...
+2025-10-26 06:19:42,181 INFO <module>(68) Gemini OK: gemini-2.5-flash
+2025-10-26 06:19:42,193 INFO <module>(72) Google Search OK.
+2025-10-26 06:20:47,840 INFO lentera_generate_case(259) LENTERA (Tahap 1): Generate Case. Jabatan: Analis Kebijakan Ahli Pertama, CV: CV_Citra_Lestari.pdf
+2025-10-26 06:26:22,451 INFO lentera_grade_final(272) Request from Origin: None
+2025-10-26 06:26:22,453 ERROR lentera_grade_final(276) LENTERA Grade Final Error: File Jawaban tidak terdeteksi di request.files
+2025-10-26 06:27:16,478 INFO lentera_grade_final(272) Request from Origin: None
+2025-10-26 06:27:16,479 ERROR lentera_grade_final(276) LENTERA Grade Final Error: File Jawaban tidak terdeteksi di request.files
+2025-10-26 13:26:11,070 INFO <module>(54) Server NAVIGARA (Python) v3.0 (Profile Cards & PDF) Dimulai...
+2025-10-26 13:26:11,072 INFO <module>(68) Gemini OK: gemini-2.5-flash
+2025-10-26 13:26:11,085 INFO <module>(72) Google Search OK.
+2025-10-26 13:27:17,693 INFO lentera_generate_case(259) LENTERA (Tahap 1): Generate Case. Jabatan: Analis Kebijakan Ahli Pertama, CV: CV_Citra_Lestari.pdf
+2025-10-26 13:43:24,802 INFO <module>(54) Server NAVIGARA (Python) v3.0 (Profile Cards & PDF) Dimulai...
+2025-10-26 13:43:24,802 INFO <module>(68) Gemini OK: gemini-2.5-flash
+2025-10-26 13:43:24,813 INFO <module>(72) Google Search OK.
+2025-10-26 14:02:45,020 INFO:app:<module>(56): Server NAVIGARA (Python) v3.2 Dimulai...
+2025-10-26 14:02:45,021 INFO:app:<module>(64): Gemini OK: gemini-1.5-flash
+2025-10-26 14:02:45,026 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-26 14:02:45,028 INFO:app:<module>(68): Google Search OK.
+2025-10-26 14:03:11,628 INFO:app:<module>(56): Server NAVIGARA (Python) v3.2 Dimulai...
+2025-10-26 14:03:11,628 INFO:app:<module>(64): Gemini OK: gemini-1.5-flash
+2025-10-26 14:03:11,632 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-26 14:03:11,635 INFO:app:<module>(68): Google Search OK.
+2025-10-26 14:05:33,877 INFO:app:<module>(56): Server NAVIGARA (Python) v3.2 Dimulai...
+2025-10-26 14:05:33,878 INFO:app:<module>(64): Gemini OK: gemini-1.5-flash
+2025-10-26 14:05:33,881 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-26 14:05:33,882 INFO:app:<module>(68): Google Search OK.
+2025-10-26 14:12:00,653 INFO:app:<module>(56): Server NAVIGARA (Python) v3.2 Dimulai...
+2025-10-26 14:12:00,653 INFO:app:<module>(64): Gemini OK: gemini-1.5-flash
+2025-10-26 14:12:00,657 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-26 14:12:00,658 INFO:app:<module>(68): Google Search OK.
+2025-10-26 14:12:00,686 INFO:werkzeug:_log(97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.10:5001
+2025-10-26 14:12:00,687 INFO:werkzeug:_log(97): [33mPress CTRL+C to quit[0m
+2025-10-26 14:12:24,247 INFO:app:lentera_generate_case(272): LENTERA (Tahap 1): Generate Case. Jabatan: Analis Kebijakan Ahli Pertama, CV: N/A
+2025-10-26 14:12:24,248 ERROR:app:log_exception(875): Exception on /api/lentera/generate-case [POST]
+Traceback (most recent call last):
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\app.py", line 281, in lentera_generate_case
+    **Nama:** {nama_kandidat}
+               ^^^^^^^^^^^^^
+NameError: name 'nama_kandidat' is not defined
+2025-10-26 14:12:24,273 INFO:werkzeug:_log(97): 127.0.0.1 - - [26/Oct/2025 14:12:24] "[35m[1mPOST /api/lentera/generate-case HTTP/1.1[0m" 500 -
+2025-10-26 14:13:03,274 INFO:app:<module>(56): Server NAVIGARA (Python) v3.2 Dimulai...
+2025-10-26 14:13:03,274 INFO:app:<module>(64): Gemini OK: gemini-2.5-flash
+2025-10-26 14:13:03,279 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-26 14:13:03,281 INFO:app:<module>(68): Google Search OK.
+2025-10-26 14:13:03,314 INFO:werkzeug:_log(97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.10:5001
+2025-10-26 14:13:03,315 INFO:werkzeug:_log(97): [33mPress CTRL+C to quit[0m
+2025-10-26 14:13:15,890 INFO:app:lentera_generate_case(272): LENTERA (Tahap 1): Generate Case. Jabatan: Analis Kebijakan Ahli Pertama, CV: N/A
+2025-10-26 14:13:15,891 ERROR:app:log_exception(875): Exception on /api/lentera/generate-case [POST]
+Traceback (most recent call last):
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\app.py", line 281, in lentera_generate_case
+    **Nama:** {nama_kandidat}
+               ^^^^^^^^^^^^^
+NameError: name 'nama_kandidat' is not defined
+2025-10-26 14:13:15,908 INFO:werkzeug:_log(97): 127.0.0.1 - - [26/Oct/2025 14:13:15] "[35m[1mPOST /api/lentera/generate-case HTTP/1.1[0m" 500 -
+2025-10-26 14:13:52,561 INFO:app:lentera_generate_case(265): CV CV_Citra_Lestari.pdf berhasil diproses.
+2025-10-26 14:13:52,562 INFO:app:lentera_generate_case(272): LENTERA (Tahap 1): Generate Case. Jabatan: Analis Kebijakan Ahli Pertama, CV: CV_Citra_Lestari.pdf
+2025-10-26 14:13:52,563 ERROR:app:log_exception(875): Exception on /api/lentera/generate-case [POST]
+Traceback (most recent call last):
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\app.py", line 281, in lentera_generate_case
+    **Nama:** {nama_kandidat}
+               ^^^^^^^^^^^^^
+NameError: name 'nama_kandidat' is not defined
+2025-10-26 14:13:52,574 INFO:werkzeug:_log(97): 127.0.0.1 - - [26/Oct/2025 14:13:52] "[35m[1mPOST /api/lentera/generate-case HTTP/1.1[0m" 500 -
+2025-10-26 14:23:32,936 INFO:app:<module>(49): Server NAVIGARA (Python) v3.3 Final Dimulai...
+2025-10-26 14:23:32,937 INFO:app:<module>(56): Gemini OK: gemini-2.5-flash
+2025-10-26 14:23:32,943 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-26 14:23:32,946 INFO:app:<module>(60): Google Search OK.
+2025-10-26 14:23:32,999 INFO:werkzeug:_log(97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.10:5001
+2025-10-26 14:23:33,000 INFO:werkzeug:_log(97): [33mPress CTRL+C to quit[0m
+2025-10-26 14:23:50,009 INFO:app:lentera_generate_case(181): LENTERA Generate Case - Origin: None
+2025-10-26 14:23:50,016 ERROR:app:log_exception(875): Exception on /api/lentera/generate-case [POST]
+Traceback (most recent call last):
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\app.py", line 203, in lentera_generate_case
+    **Nama:** {nama_kandidat}
+               ^^^^^^^^^^^^^
+NameError: name 'nama_kandidat' is not defined
+2025-10-26 14:23:50,040 INFO:werkzeug:_log(97): 127.0.0.1 - - [26/Oct/2025 14:23:50] "[35m[1mPOST /api/lentera/generate-case HTTP/1.1[0m" 500 -
+2025-10-26 14:24:24,430 INFO:app:lentera_generate_case(181): LENTERA Generate Case - Origin: None
+2025-10-26 14:24:24,531 INFO:app:extract_text_from_file(98): Ekstraksi teks dari CV_Citra_Lestari.pdf berhasil.
+2025-10-26 14:24:24,533 INFO:app:lentera_generate_case(191): CV CV_Citra_Lestari.pdf OK.
+2025-10-26 14:24:24,534 ERROR:app:log_exception(875): Exception on /api/lentera/generate-case [POST]
+Traceback (most recent call last):
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\app.py", line 203, in lentera_generate_case
+    **Nama:** {nama_kandidat}
+               ^^^^^^^^^^^^^
+NameError: name 'nama_kandidat' is not defined
+2025-10-26 14:24:24,547 INFO:werkzeug:_log(97): 127.0.0.1 - - [26/Oct/2025 14:24:24] "[35m[1mPOST /api/lentera/generate-case HTTP/1.1[0m" 500 -
+2025-10-26 14:30:58,279 INFO:app:<module>(49): Server NAVIGARA (Python) v3.3 Final Dimulai...
+2025-10-26 14:30:58,280 INFO:app:<module>(56): Gemini OK: gemini-2.5-flash
+2025-10-26 14:30:58,287 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-26 14:30:58,291 INFO:app:<module>(60): Google Search OK.
+2025-10-26 14:30:58,338 INFO:werkzeug:_log(97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.10:5001
+2025-10-26 14:30:58,339 INFO:werkzeug:_log(97): [33mPress CTRL+C to quit[0m
+2025-10-26 14:31:02,632 INFO:app:lentera_generate_case(181): LENTERA Generate Case - Origin: None
+2025-10-26 14:31:02,636 INFO:app:lentera_generate_case(210): LENTERA (Tahap 1): Generate Case. Jabatan: Analis Kebijakan Ahli Pertama, CV: Tidak Ada
+2025-10-26 14:31:02,636 INFO:app:call_gemini_api(108): Calling Gemini API (2425 chars)
+2025-10-26 14:31:20,692 INFO:app:lentera_generate_case(271): LENTERA Generate Case - Berhasil.
+2025-10-26 14:31:20,698 INFO:werkzeug:_log(97): 127.0.0.1 - - [26/Oct/2025 14:31:20] "POST /api/lentera/generate-case HTTP/1.1" 200 -
+2025-10-26 14:37:27,547 INFO:app:<module>(49): Server NAVIGARA (Python) v3.3 Final Dimulai...
+2025-10-26 14:37:27,548 INFO:app:<module>(56): Gemini OK: gemini-2.5-flash
+2025-10-26 14:37:27,553 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-26 14:37:27,558 INFO:app:<module>(60): Google Search OK.
+2025-10-26 14:37:27,606 INFO:werkzeug:_log(97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.10:5001
+2025-10-26 14:37:27,606 INFO:werkzeug:_log(97): [33mPress CTRL+C to quit[0m
+2025-10-26 14:37:34,312 INFO:app:lentera_generate_case(181): LENTERA Generate Case - Origin: None
+2025-10-26 14:37:34,320 INFO:app:lentera_generate_case(210): LENTERA (Tahap 1): Generate Case. Jabatan: Analis Kebijakan Ahli Pertama, CV: Tidak Ada
+2025-10-26 14:37:34,321 INFO:app:call_gemini_api(108): Calling Gemini API (509 chars)
+2025-10-26 14:37:55,601 INFO:app:lentera_generate_case(235): LENTERA Generate Case - Berhasil.
+2025-10-26 14:37:55,605 INFO:werkzeug:_log(97): 127.0.0.1 - - [26/Oct/2025 14:37:55] "POST /api/lentera/generate-case HTTP/1.1" 200 -
+2025-10-26 14:46:32,766 INFO:werkzeug:_log(97): 127.0.0.1 - - [26/Oct/2025 14:46:32] "GET /api/history HTTP/1.1" 200 -
+2025-10-26 14:46:32,818 INFO:werkzeug:_log(97): 127.0.0.1 - - [26/Oct/2025 14:46:32] "GET /api/history HTTP/1.1" 200 -
+2025-10-26 14:51:45,791 INFO:app:<module>(49): Server NAVIGARA (Python) v3.3 Final Dimulai...
+2025-10-26 14:51:45,791 INFO:app:<module>(56): Gemini OK: gemini-2.5-flash
+2025-10-26 14:51:45,794 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-26 14:51:45,795 INFO:app:<module>(60): Google Search OK.
+2025-10-26 14:51:45,820 INFO:werkzeug:_log(97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.10:5001
+2025-10-26 14:51:45,820 INFO:werkzeug:_log(97): [33mPress CTRL+C to quit[0m
+2025-10-26 14:51:56,390 INFO:app:lentera_generate_case(181): LENTERA Generate Case - Origin: None
+2025-10-26 14:51:56,396 INFO:app:lentera_generate_case(210): LENTERA (Tahap 1): Generate Case. Jabatan: Analis Kebijakan Ahli Pertama, CV: Tidak Ada
+2025-10-26 14:51:56,397 INFO:app:call_gemini_api(108): Calling Gemini API (509 chars)
+2025-10-26 14:52:12,952 INFO:app:lentera_generate_case(235): LENTERA Generate Case - Berhasil.
+2025-10-26 14:52:12,960 INFO:werkzeug:_log(97): 127.0.0.1 - - [26/Oct/2025 14:52:12] "POST /api/lentera/generate-case HTTP/1.1" 200 -
+2025-10-26 14:55:50,286 INFO:app:<module>(49): Server NAVIGARA (Python) v3.3 Final Dimulai...
+2025-10-26 14:55:50,287 INFO:app:<module>(56): Gemini OK: gemini-2.5-flash
+2025-10-26 14:55:50,293 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-26 14:55:50,296 INFO:app:<module>(60): Google Search OK.
+2025-10-26 14:55:50,343 INFO:werkzeug:_log(97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.10:5001
+2025-10-26 14:55:50,343 INFO:werkzeug:_log(97): [33mPress CTRL+C to quit[0m
+2025-10-26 15:03:18,093 INFO:app:<module>(49): Server NAVIGARA (Python) v3.3 Final Dimulai...
+2025-10-26 15:03:18,093 INFO:app:<module>(56): Gemini OK: gemini-2.5-flash
+2025-10-26 15:03:18,096 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-26 15:03:18,098 INFO:app:<module>(60): Google Search OK.
+2025-10-26 15:03:18,139 INFO:werkzeug:_log(97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.10:5001
+2025-10-26 15:03:18,139 INFO:werkzeug:_log(97): [33mPress CTRL+C to quit[0m
+2025-10-26 15:04:15,499 INFO:app:<module>(49): Server NAVIGARA (Python) v3.3 Final Dimulai...
+2025-10-26 15:04:15,500 INFO:app:<module>(56): Gemini OK: gemini-2.5-flash
+2025-10-26 15:04:15,506 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-26 15:04:15,509 INFO:app:<module>(60): Google Search OK.
+2025-10-26 15:04:15,573 INFO:werkzeug:_log(97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.10:5001
+2025-10-26 15:04:15,573 INFO:werkzeug:_log(97): [33mPress CTRL+C to quit[0m
+2025-10-26 15:41:16,281 INFO:app:<module>(49): Server NAVIGARA (Python) v3.3 Final Dimulai...
+2025-10-26 15:41:16,282 INFO:app:<module>(56): Gemini OK: gemini-2.5-flash
+2025-10-26 15:41:16,290 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-26 15:41:16,294 INFO:app:<module>(60): Google Search OK.
+2025-10-26 15:41:16,353 INFO:werkzeug:_log(97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.10:5001
+2025-10-26 15:41:16,353 INFO:werkzeug:_log(97): [33mPress CTRL+C to quit[0m
+2025-10-26 15:41:25,114 INFO:app:lentera_generate_case(181): LENTERA Generate Case - Origin: None
+2025-10-26 15:41:25,122 INFO:app:lentera_generate_case(210): LENTERA (Tahap 1): Generate Case. Jabatan: Analis Forensik Ahli Pertama, CV: Tidak Ada
+2025-10-26 15:41:25,122 INFO:app:call_gemini_api(108): Calling Gemini API (509 chars)
+2025-10-26 15:41:37,589 INFO:app:lentera_generate_case(235): LENTERA Generate Case - Berhasil.
+2025-10-26 15:41:37,593 INFO:werkzeug:_log(97): 127.0.0.1 - - [26/Oct/2025 15:41:37] "POST /api/lentera/generate-case HTTP/1.1" 200 -
+2025-10-26 15:43:43,429 INFO:app:lentera_generate_case(181): LENTERA Generate Case - Origin: None
+2025-10-26 15:43:43,434 INFO:app:lentera_generate_case(210): LENTERA (Tahap 1): Generate Case. Jabatan: Analis Forensik Ahli Pertama, CV: Tidak Ada
+2025-10-26 15:43:43,434 INFO:app:call_gemini_api(108): Calling Gemini API (509 chars)
+2025-10-26 15:43:55,355 INFO:app:lentera_generate_case(235): LENTERA Generate Case - Berhasil.
+2025-10-26 15:43:55,357 INFO:werkzeug:_log(97): 127.0.0.1 - - [26/Oct/2025 15:43:55] "POST /api/lentera/generate-case HTTP/1.1" 200 -
+2025-10-26 15:54:03,818 INFO:app:<module>(49): Server NAVIGARA (Python) v3.3 Final Dimulai...
+2025-10-26 15:54:03,819 INFO:app:<module>(56): Gemini OK: gemini-2.5-flash
+2025-10-26 15:54:03,824 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-26 15:54:03,828 INFO:app:<module>(60): Google Search OK.
+2025-10-26 15:54:03,893 INFO:werkzeug:_log(97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.10:5001
+2025-10-26 15:54:03,932 INFO:werkzeug:_log(97): [33mPress CTRL+C to quit[0m
+2025-10-26 15:54:07,943 INFO:app:lentera_generate_case(181): LENTERA Generate Case - Origin: None
+2025-10-26 15:54:07,952 INFO:app:lentera_generate_case(203): LENTERA (Tahap 1): Generate Case. Jabatan: Analis Forensik Digital, CV: Tidak Ada
+2025-10-26 15:54:07,953 INFO:app:lentera_generate_case(239): Prompt AI Generate Case:
+
+    Anda adalah Asesor AI BKN yang sangat ahli dalam membuat soal studi kasus **spesifik** untuk jabatan ASN.
+
+    DATA KANDIDAT:
+    - Jabatan yang **HARUS** menjadi fokus utama soal: **Analis Forensik Digital** 
+- CV Kandidat: Tidak disediakan.
+
+    TUGAS UTAMA:
+    Buat 1 (satu) soal studi kasus yang **SANGAT SPESIFIK dan RELEVAN** berdasarkan **jabatan spesifik yang dituju** berikut.
+    Soal ini WAJIB menguji **nalar, problem-solving, dan integritas** yang paling krusial untuk jabatan **An...
+2025-10-26 15:54:07,956 INFO:app:call_gemini_api(108): Calling Gemini API (1127 chars)
+2025-10-26 15:54:20,456 INFO:app:lentera_generate_case(250): LENTERA Generate Case - Selesai.
+2025-10-26 15:54:20,462 INFO:werkzeug:_log(97): 127.0.0.1 - - [26/Oct/2025 15:54:20] "POST /api/lentera/generate-case HTTP/1.1" 200 -
+2025-10-26 15:54:58,547 INFO:app:lentera_grade_final(255): LENTERA Grade Final - Origin: None
+2025-10-26 15:54:58,558 INFO:werkzeug:_log(97): 127.0.0.1 - - [26/Oct/2025 15:54:58] "[31m[1mPOST /api/lentera/grade-final HTTP/1.1[0m" 400 -
+2025-10-26 16:01:59,541 INFO:app:<module>(49): Server NAVIGARA (Python) v3.3 Final Dimulai...
+2025-10-26 16:01:59,542 INFO:app:<module>(56): Gemini OK: gemini-2.5-flash
+2025-10-26 16:01:59,549 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-26 16:01:59,553 INFO:app:<module>(60): Google Search OK.
+2025-10-26 16:01:59,603 INFO:werkzeug:_log(97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.10:5001
+2025-10-26 16:01:59,603 INFO:werkzeug:_log(97): [33mPress CTRL+C to quit[0m
+2025-10-26 16:02:04,309 INFO:app:lentera_generate_case(181): LENTERA Generate Case - Origin: None
+2025-10-26 16:02:04,317 INFO:app:lentera_generate_case(203): LENTERA (Tahap 1): Generate Case. Jabatan: Sandiman Pertama, CV: Tidak Ada
+2025-10-26 16:02:04,318 INFO:app:lentera_generate_case(239): Prompt AI Generate Case:
+
+    Anda adalah Asesor AI BKN yang sangat ahli dalam membuat soal studi kasus **spesifik** untuk jabatan ASN.
+
+    DATA KANDIDAT:
+    - Jabatan yang **HARUS** menjadi fokus utama soal: **Sandiman Pertama** 
+- CV Kandidat: Tidak disediakan.
+
+    TUGAS UTAMA:
+    Buat 1 (satu) soal studi kasus yang **SANGAT SPESIFIK dan RELEVAN** berdasarkan **jabatan spesifik yang dituju** berikut.
+    Soal ini WAJIB menguji **nalar, problem-solving, dan integritas** yang paling krusial untuk jabatan **Sandiman ...
+2025-10-26 16:02:04,319 INFO:app:call_gemini_api(108): Calling Gemini API (1085 chars)
+2025-10-26 16:02:25,825 INFO:app:lentera_generate_case(250): LENTERA Generate Case - Selesai.
+2025-10-26 16:02:25,831 INFO:werkzeug:_log(97): 127.0.0.1 - - [26/Oct/2025 16:02:25] "POST /api/lentera/generate-case HTTP/1.1" 200 -
+2025-10-26 16:03:03,480 INFO:app:lentera_grade_final(255): LENTERA Grade Final - Request Origin: None, Content-Type: multipart/form-data; boundary=--------------------------1562805ae9c7c6617164f0b2
+2025-10-26 16:03:03,488 INFO:app:lentera_grade_final(292): Tidak ada teks dari file jawaban, menggunakan teks dari form field.
+2025-10-26 16:03:03,488 INFO:app:lentera_grade_final(301): LENTERA (Tahap 2): Melanjutkan Grade Final. Sumber Jawaban: Input Teks
+2025-10-26 16:03:03,490 INFO:app:run_osint_analysis(125): OSINT Engine: Google Search '"Kandidat" ASN OR PNS OR BKN'
+2025-10-26 16:03:06,030 INFO:app:call_gemini_api(108): Calling Gemini API (5364 chars)
+2025-10-26 16:03:30,239 WARNING:app:parse_score(150): Pola skor 'SKOR TOTAL POTENSI' tidak ditemukan. Default: 50
+2025-10-26 16:03:30,243 WARNING:app:parse_score(150): Pola skor 'Kualifikasi & Pengetahuan' tidak ditemukan. Default: 4
+2025-10-26 16:03:30,247 WARNING:app:parse_score(150): Pola skor 'Nalar & Logika' tidak ditemukan. Default: 4
+2025-10-26 16:03:30,251 WARNING:app:parse_score(150): Pola skor 'Problem Solving' tidak ditemukan. Default: 4
+2025-10-26 16:03:30,255 WARNING:app:parse_score(150): Pola skor 'Jejak Digital' tidak ditemukan. Default: 4
+2025-10-26 16:03:30,259 WARNING:app:parse_score(150): Pola skor 'Potensi Integritas' tidak ditemukan. Default: 4
+2025-10-26 16:03:30,340 INFO:werkzeug:_log(97): 127.0.0.1 - - [26/Oct/2025 16:03:30] "POST /api/lentera/grade-final HTTP/1.1" 200 -
+2025-10-26 16:14:08,245 INFO:app:<module>(49): Server NAVIGARA (Python) v3.3 Final Dimulai...
+2025-10-26 16:14:08,246 INFO:app:<module>(56): Gemini OK: gemini-2.5-flash
+2025-10-26 16:14:08,252 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-26 16:14:08,255 INFO:app:<module>(60): Google Search OK.
+2025-10-26 16:14:08,308 INFO:werkzeug:_log(97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.10:5001
+2025-10-26 16:14:08,309 INFO:werkzeug:_log(97): [33mPress CTRL+C to quit[0m
+2025-10-26 16:21:13,717 INFO:app:<module>(49): Server NAVIGARA (Python) v3.3 Final Dimulai...
+2025-10-26 16:21:13,717 INFO:app:<module>(56): Gemini OK: gemini-2.5-flash
+2025-10-26 16:21:13,723 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-26 16:21:13,726 INFO:app:<module>(60): Google Search OK.
+2025-10-26 16:21:13,787 INFO:werkzeug:_log(97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.10:5001
+2025-10-26 16:21:13,787 INFO:werkzeug:_log(97): [33mPress CTRL+C to quit[0m
+2025-10-26 16:23:18,349 INFO:app:<module>(49): Server NAVIGARA (Python) v3.3 Final Dimulai...
+2025-10-26 16:23:18,350 INFO:app:<module>(56): Gemini OK: gemini-2.5-flash
+2025-10-26 16:23:18,359 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-26 16:23:18,365 INFO:app:<module>(60): Google Search OK.
+2025-10-26 16:23:18,513 INFO:werkzeug:_log(97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.10:5001
+2025-10-26 16:23:18,513 INFO:werkzeug:_log(97): [33mPress CTRL+C to quit[0m
+2025-10-26 16:29:45,377 INFO:app:<module>(49): Server NAVIGARA (Python) v3.3 Final Dimulai...
+2025-10-26 16:29:45,378 INFO:app:<module>(56): Gemini OK: gemini-2.5-flash
+2025-10-26 16:29:45,385 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-26 16:29:45,388 INFO:app:<module>(60): Google Search OK.
+2025-10-26 16:29:45,453 INFO:werkzeug:_log(97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.10:5001
+2025-10-26 16:29:45,454 INFO:werkzeug:_log(97): [33mPress CTRL+C to quit[0m
+2025-10-26 16:30:05,730 INFO:app:lentera_generate_case(181): LENTERA Generate Case - Origin: None
+2025-10-26 16:30:05,737 INFO:app:lentera_generate_case(203): LENTERA (Tahap 1): Generate Case. Jabatan: Sandiman Ahli Muda, CV: Tidak Ada
+2025-10-26 16:30:05,738 INFO:app:lentera_generate_case(239): Prompt AI Generate Case:
+
+    Anda adalah Asesor AI BKN yang sangat ahli dalam membuat soal studi kasus **spesifik** untuk jabatan ASN.
+
+    DATA KANDIDAT:
+    - Jabatan yang **HARUS** menjadi fokus utama soal: **Sandiman Ahli Muda** 
+- CV Kandidat: Tidak disediakan.
+
+    TUGAS UTAMA:
+    Buat 1 (satu) soal studi kasus yang **SANGAT SPESIFIK dan RELEVAN** berdasarkan **jabatan spesifik yang dituju** berikut.
+    Soal ini WAJIB menguji **nalar, problem-solving, dan integritas** yang paling krusial untuk jabatan **Sandima...
+2025-10-26 16:30:05,738 INFO:app:call_gemini_api(108): Calling Gemini API (1097 chars)
+2025-10-26 16:30:24,872 INFO:app:lentera_generate_case(250): LENTERA Generate Case - Selesai.
+2025-10-26 16:30:24,876 INFO:werkzeug:_log(97): 127.0.0.1 - - [26/Oct/2025 16:30:24] "POST /api/lentera/generate-case HTTP/1.1" 200 -
+2025-10-26 16:31:00,325 INFO:app:lentera_grade_final(255): LENTERA Grade Final - Request Origin: None, Content-Type: multipart/form-data; boundary=--------------------------c7e03110e7e001b2f887cd31
+2025-10-26 16:31:00,329 INFO:app:lentera_grade_final(292): Tidak ada teks dari file jawaban, menggunakan teks dari form field.
+2025-10-26 16:31:00,329 INFO:app:lentera_grade_final(301): LENTERA (Tahap 2): Melanjutkan Grade Final. Sumber Jawaban: Input Teks
+2025-10-26 16:31:00,330 INFO:app:run_osint_analysis(125): OSINT Engine: Google Search '"Kandidat" ASN OR PNS OR BKN'
+2025-10-26 16:31:02,685 INFO:app:call_gemini_api(108): Calling Gemini API (5177 chars)
+2025-10-26 16:31:23,746 WARNING:app:parse_score(150): Pola skor 'SKOR TOTAL POTENSI' tidak ditemukan. Default: 50
+2025-10-26 16:31:23,749 WARNING:app:parse_score(150): Pola skor 'Kualifikasi & Pengetahuan' tidak ditemukan. Default: 4
+2025-10-26 16:31:23,751 WARNING:app:parse_score(150): Pola skor 'Nalar & Logika' tidak ditemukan. Default: 4
+2025-10-26 16:31:23,753 WARNING:app:parse_score(150): Pola skor 'Problem Solving' tidak ditemukan. Default: 4
+2025-10-26 16:31:23,755 WARNING:app:parse_score(150): Pola skor 'Jejak Digital' tidak ditemukan. Default: 4
+2025-10-26 16:31:23,758 WARNING:app:parse_score(150): Pola skor 'Potensi Integritas' tidak ditemukan. Default: 4
+2025-10-26 16:31:23,824 INFO:werkzeug:_log(97): 127.0.0.1 - - [26/Oct/2025 16:31:23] "POST /api/lentera/grade-final HTTP/1.1" 200 -
+2025-10-26 16:33:11,936 INFO:app:export_lentera_pdf(336): LENTERA: Generate PDF untuk Kandidat Debug
+2025-10-26 16:33:12,418 INFO:werkzeug:_log(97): 127.0.0.1 - - [26/Oct/2025 16:33:12] "POST /api/lentera/export-pdf HTTP/1.1" 200 -

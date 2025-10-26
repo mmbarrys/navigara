@@ -617,3 +617,387 @@ button:disabled { background-color: var(--color-border); color: var(--color-mute
 .recommendation-direkomendasikan { background-color: var(--color-primary); }
 .recommendation-dipertimbangkan { background-color: var(--color-warning); color: var(--color-background) !important; } /* Teks gelap */
 .recommendation-butuh { background-color: var(--color-error); }
+
+/* --- Tambahan Styling untuk History Page --- */
+.history-table-container {
+  overflow-x: auto; /* Agar tabel bisa scroll horizontal di layar kecil */
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0;
+}
+
+.history-table th, .history-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.9rem;
+  white-space: nowrap; /* Cegah teks wrap */
+}
+
+.history-table th {
+  background-color: rgba(0,0,0,0.2); /* Header sedikit beda */
+  color: var(--color-muted-foreground);
+  font-weight: 600;
+}
+
+.history-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.history-table tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.05); /* Efek hover halus */
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  color: var(--color-error);
+  cursor: pointer;
+  padding: 5px;
+  opacity: 0.6;
+}
+.delete-button:hover {
+  opacity: 1;
+  background-color: rgba(239, 68, 68, 0.1); /* Hover merah */
+  border-radius: 4px;
+}
+
+/* --- Tambahan Styling untuk Profile Card Superhero --- */
+.profile-card-container {
+  background: linear-gradient(145deg, var(--color-card) 0%, #2a3a50 100%); /* Gradient background card */
+  padding: 0; /* Padding diatur oleh sub-bagian */
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+  position: relative; /* Untuk tombol export */
+  overflow: hidden; /* Agar sudut rapi */
+}
+
+.export-pdf-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: var(--color-success) !important; /* Paksa warna hijau */
+  font-size: 0.9rem !important;
+  padding: 8px 12px !important;
+  z-index: 10;
+}
+.export-pdf-button svg { margin-right: 6px !important; }
+
+.profile-card-header {
+  display: flex;
+  align-items: center;
+  padding: 25px;
+  background: rgba(0,0,0,0.1); /* Header sedikit beda */
+  border-bottom: 1px solid var(--color-border);
+}
+
+.profile-avatar {
+  width: 60px; height: 60px; border-radius: 50%;
+  background-color: var(--color-muted-foreground);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; font-weight: 600;
+  margin-right: 20px;
+  flex-shrink: 0;
+  border: 2px solid var(--color-border);
+}
+
+.profile-header-text h2 {
+  margin: 0 0 5px 0;
+  font-size: 1.6rem;
+  color: var(--color-foreground);
+}
+.profile-header-text p {
+  margin: 0;
+  color: var(--color-muted-foreground);
+  font-size: 1rem;
+}
+
+.profile-score-total {
+  margin-left: auto; /* Dorong ke kanan */
+  text-align: center;
+  border: 2px solid var(--color-primary); /* Warna default */
+  border-radius: var(--radius);
+  padding: 10px 15px;
+  min-width: 90px;
+}
+.profile-score-total span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-muted-foreground);
+  margin-bottom: 2px;
+}
+.profile-score-total strong {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--color-foreground);
+  line-height: 1;
+}
+
+.profile-card-body {
+  padding: 25px;
+}
+
+.score-bars-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Default 1 kolom */
+  gap: 15px;
+  margin-top: 5px; /* Kurangi margin atas */
+  margin-bottom: 25px;
+}
+@media (min-width: 640px) {
+  .score-bars-grid { grid-template-columns: repeat(2, 1fr); gap: 20px;} /* 2 kolom di layar medium */
+}
+@media (min-width: 1024px) {
+  /* Tetap 2 kolom agar tidak terlalu lebar */
+}
+
+
+.score-bar-item {
+  animation: fadeIn 0.5s ease forwards; /* Gunakan forwards */
+  opacity: 0; /* Mulai transparan */
+}
+
+.score-bar-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+.score-bar-label span { color: var(--color-muted-foreground); }
+.score-bar-label strong { font-weight: 600; color: var(--color-foreground); }
+
+.score-bar-track {
+  width: 100%;
+  height: 8px;
+  background-color: var(--color-background); /* Latar belakang bar */
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.score-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  animation: growWidth 1s ease-out forwards; /* Animasi bar */
+  transform-origin: left;
+  width: 0%; /* Mulai dari 0 */
+}
+
+@keyframes growWidth {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.profile-analysis-section {
+  margin-top: 30px;
+  border-top: 1px solid var(--color-border);
+  padding-top: 20px;
+}
+
+.profile-analysis-section details {
+  margin-bottom: 15px;
+  border: 1px solid transparent; /* Placeholder */
+  border-radius: var(--radius);
+}
+.profile-analysis-section details[open] {
+   border-color: var(--color-border);
+   background: rgba(0,0,0,0.1);
+}
+
+.profile-analysis-section summary {
+  cursor: pointer;
+  padding: 10px 15px;
+  font-weight: 600;
+  color: var(--color-foreground);
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius);
+}
+.profile-analysis-section details[open] summary {
+   border-bottom: 1px solid var(--color-border);
+   border-bottom-left-radius: 0;
+   border-bottom-right-radius: 0;
+}
+.profile-analysis-section summary:hover {
+   background: rgba(255,255,255,0.05);
+}
+.profile-analysis-section summary h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--color-foreground) !important; /* Override warna h3 */
+  border: none; padding: 0;
+  display: flex; align-items: center;
+}
+.profile-analysis-section summary h3 svg {
+  margin-right: 10px;
+  color: var(--color-accent); /* Warna ikon */
+}
+.profile-analysis-section summary::after { /* Indikator expand/collapse */
+  content: '+';
+  margin-left: auto;
+  font-size: 1.5rem;
+  color: var(--color-muted-foreground);
+  transition: transform 0.2s ease;
+}
+.profile-analysis-section details[open] summary::after {
+  content: '−';
+  transform: rotate(180deg);
+}
+
+.profile-analysis-section .ai-output-container {
+  padding: 15px;
+}
+
+.profile-recommendation-section {
+  margin-top: 30px;
+  border-top: 1px solid var(--color-border);
+  padding-top: 25px;
+}
+.profile-recommendation-section h3 {
+   margin: 0 0 15px 0;
+   font-size: 1.2rem;
+   display: flex;
+   align-items: center;
+}
+.profile-recommendation-section h3 span { /* Teks rekomendasi */
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: var(--radius);
+  margin-left: 10px;
+  font-size: 1rem;
+  color: var(--color-foreground);
+}
+/* Warna background akan ditambahkan via style inline di React */
+
+.error-box { /* Styling untuk box error */
+  background: rgba(239, 68, 68, 0.1) !important;
+  border-color: var(--color-error) !important;
+}
+.error-box h4 { color: var(--color-error) !important; }
+
+/* --- Tambahan Styling untuk History Page --- */
+.history-table-container { overflow-x: auto; }
+.history-table { width: 100%; border-collapse: collapse; margin-top: 0; }
+.history-table th, .history-table td { padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--color-border); font-size: 0.9rem; white-space: nowrap; }
+.history-table th { background-color: rgba(0,0,0,0.2); color: var(--color-muted-foreground); font-weight: 600; }
+.history-table tbody tr:last-child td { border-bottom: none; }
+.history-table tbody tr:hover { background-color: rgba(255, 255, 255, 0.05); }
+.delete-button { background: none; border: none; color: var(--color-error); cursor: pointer; padding: 5px; opacity: 0.6; }
+.delete-button:hover { opacity: 1; background-color: rgba(239, 68, 68, 0.1); border-radius: 4px; }
+.history-table td .inline-block { vertical-align: middle; } /* Align ikon */
+
+/* --- Tambahan Styling untuk Profile Card Superhero --- */
+.profile-card-container { background: linear-gradient(145deg, var(--color-card) 0%, #2a3a50 100%); padding: 0; border-radius: var(--radius); border: 1px solid var(--color-border); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); margin-top: 20px; position: relative; overflow: hidden; }
+.export-pdf-button { position: absolute; top: 15px; right: 15px; background-color: var(--color-success) !important; font-size: 0.9rem !important; padding: 8px 12px !important; z-index: 10; }
+.export-pdf-button svg { margin-right: 6px !important; }
+.profile-card-header { display: flex; align-items: center; padding: 25px; background: rgba(0,0,0,0.1); border-bottom: 1px solid var(--color-border); }
+.profile-avatar { width: 60px; height: 60px; border-radius: 50%; background-color: var(--color-muted-foreground); display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 600; margin-right: 20px; flex-shrink: 0; border: 2px solid var(--color-border); }
+.profile-header-text h2 { margin: 0 0 5px 0; font-size: 1.6rem; color: var(--color-foreground); }
+.profile-header-text p { margin: 0; color: var(--color-muted-foreground); font-size: 1rem; }
+.profile-score-total { margin-left: auto; text-align: center; border: 2px solid var(--color-primary); border-radius: var(--radius); padding: 10px 15px; min-width: 90px; }
+.profile-score-total span { display: block; font-size: 0.8rem; color: var(--color-muted-foreground); margin-bottom: 2px; }
+.profile-score-total strong { display: block; font-size: 1.8rem; font-weight: 700; color: var(--color-foreground); line-height: 1; }
+.profile-card-body { padding: 25px; }
+.score-bars-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 5px; margin-bottom: 25px; }
+@media (min-width: 640px) { .score-bars-grid { grid-template-columns: repeat(2, 1fr); gap: 20px;} }
+.score-bar-item { animation: fadeIn 0.5s ease forwards; opacity: 0; }
+.score-bar-label { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; font-size: 0.9rem; }
+.score-bar-label span { color: var(--color-muted-foreground); }
+.score-bar-label strong { font-weight: 600; color: var(--color-foreground); }
+.score-bar-track { width: 100%; height: 8px; background-color: var(--color-background); border-radius: 4px; overflow: hidden; }
+.score-bar-fill { height: 100%; border-radius: 4px; animation: growWidth 1s ease-out forwards; transform-origin: left; width: 0%; }
+.profile-analysis-section { margin-top: 30px; border-top: 1px solid var(--color-border); padding-top: 20px; }
+.profile-analysis-section details { margin-bottom: 15px; border: 1px solid transparent; border-radius: var(--radius); }
+.profile-analysis-section details[open] { border-color: var(--color-border); background: rgba(0,0,0,0.1); }
+.profile-analysis-section summary { cursor: pointer; padding: 10px 15px; font-weight: 600; color: var(--color-foreground); display: flex; align-items: center; border-radius: var(--radius); }
+.profile-analysis-section details[open] summary { border-bottom: 1px solid var(--color-border); border-bottom-left-radius: 0; border-bottom-right-radius: 0; }
+.profile-analysis-section summary:hover { background: rgba(255,255,255,0.05); }
+.profile-analysis-section summary h3 { margin: 0; font-size: 1.1rem; color: var(--color-foreground) !important; border: none; padding: 0; display: flex; align-items: center; }
+.profile-analysis-section summary h3 svg { margin-right: 10px; color: var(--color-accent); }
+.profile-analysis-section summary::after { content: '+'; margin-left: auto; font-size: 1.5rem; color: var(--color-muted-foreground); transition: transform 0.2s ease; }
+.profile-analysis-section details[open] summary::after { content: '−'; transform: rotate(180deg); }
+.profile-analysis-section .ai-output-container { padding: 15px; }
+.profile-recommendation-section { margin-top: 30px; border-top: 1px solid var(--color-border); padding-top: 25px; }
+.profile-recommendation-section h3 { margin: 0 0 15px 0; font-size: 1.2rem; display: flex; align-items: center; }
+.profile-recommendation-section h3 span { /* Teks rekomendasi */ display: inline-block; padding: 4px 10px; border-radius: var(--radius); margin-left: 10px; font-size: 1rem; color: var(--color-foreground); }
+/* Warna rekomendasi dihandle inline style */
+/* --- Tambahan Styling untuk Lentera Page --- */
+
+.ai-selector.card { /* Styling khusus box AI Selector */
+  padding: 15px 20px !important; /* Override padding card */
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(0,0,0,0.1); /* Lebih soft */
+  border-left: 3px solid var(--color-accent);
+}
+.ai-selector label { margin-bottom: 0; }
+.ai-selector select { margin-right: 0; }
+.ai-selector span { font-size: 0.85rem; color: var(--color-muted-foreground); }
+
+.card-step {
+  margin-bottom: 25px;
+  transition: opacity 0.5s ease, border-left 0.5s ease;
+  border-left: 5px solid transparent; /* Default border */
+}
+.card-step.active {
+  border-left: 5px solid var(--color-primary);
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.1); /* Shadow saat aktif */
+}
+
+.file-input-wrapper {
+  margin-bottom: 15px;
+  /* Bisa ditambahkan style untuk input file */
+}
+.file-name-display {
+  margin-left: 10px;
+  font-size: 0.9rem;
+  color: var(--color-muted-foreground);
+  font-style: italic;
+}
+
+.radio-group {
+  margin-bottom: 15px;
+  display: flex;
+  gap: 20px;
+}
+.radio-group label {
+  display: inline-flex; /* Agar rapi */
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+.radio-group input[type="radio"] { width: auto; margin-bottom: 0; } /* Reset width input radio */
+
+.study-case-box {
+  background: rgba(0,0,0,0.1) !important; /* Background beda untuk studi kasus */
+  margin-top: 20px;
+}
+
+.debug-button {
+   background: var(--color-warning) !important;
+   color: var(--color-background) !important;
+   padding: 8px 12px !important;
+   font-size: 0.9rem !important;
+}
+.reset-button {
+   background: var(--color-muted-foreground) !important;
+   color: var(--color-card) !important;
+   padding: 8px 12px !important;
+   font-size: 0.9rem !important;
+}
+
+.placeholder-text, .loading-text {
+    text-align: center;
+    color: var(--color-muted-foreground);
+    padding: 2rem 0;
+    font-style: italic;
+}

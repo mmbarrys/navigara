@@ -45,15 +45,28 @@ export default function DashboardPage() {
         <div className="stats-grid">
           {stats.map((stat, i) => {
             const Icon = stat.icon;
-            return (
-              <div key={i} className="stat-card glass animate-fade-in" style={{ animationDelay: `${i * 0.1}s` }}>
+            const cardContent = (
+              <>
                 <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '1rem'}}>
-                   <Icon className={`w-6 h-6 ${stat.color}`} /> {/* Terapkan warna ikon */}
+                   <Icon className={`w-6 h-6 ${stat.color}`} />
                 </div>
                 <p className="label">{stat.label}</p>
                 <p className="value">{stat.value}</p>
-              </div>
-            )
+              </>
+            );
+            
+            // Bungkus dengan Link jika ada link
+            return stat.link ? (
+               <Link key={i} to={stat.link} style={{ textDecoration: 'none' }} title={`Lihat detail ${stat.label}`}>
+                  <div className="stat-card glass animate-fade-in" style={{ animationDelay: `${i * 0.1}s`, cursor: 'pointer' }}>
+                     {cardContent}
+                  </div>
+               </Link>
+            ) : (
+               <div key={i} className="stat-card glass animate-fade-in" style={{ animationDelay: `${i * 0.1}s` }}>
+                  {cardContent}
+               </div>
+            );
           })}
         </div>
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { API_URL, useAppContext } from '../App';
 import AiOutput from '../components/AiOutput';
+import ProfileCardSelayar from '../components/ProfileCardSelayar'; // <-- IMPORT BARU
 import { Download } from 'lucide-react'; // Ikon download
 
 function Selayar() {
@@ -12,6 +13,7 @@ function Selayar() {
   const [sentimentResult, setSentimentResult] = useState(null);
   const [loadingSentiment, setLoadingSentiment] = useState(false);
 
+  const [skpAnalysisResult, setSkpAnalysisResult] = useState(null); // { artifact_analysis, skor_kinerja, scores_structured }
   const [skpResultText, setSkpResultText] = useState('');
   const [selectedSkp, setSelectedSkp] = useState(null);
   const [skpFileName, setSkpFileName] = useState('');
@@ -54,72 +56,47 @@ function Selayar() {
 
   // --- FUNGSI 3: Analisis SKP ---
   const handleAnalyzeSkp = async () => {
-    if (!selectedSkp) {
-      setError('Error: Pilih file SKP dulu.');
-      return;
-    }
-    setLoadingSkp(true);
-    setSkpResultText('');
-    setFinalPerformanceScore(null);
-    setError('');
-
+   if (!selectedSkp) { setError('Error: Pilih file SKP dulu.'); return; }
+    setLoadingSkp(true); setSkpAnalysisResult(null); setError('');
     const formData = new FormData();
     formData.append('file_skp', selectedSkp);
     formData.append('provider', provider);
-
-    try {
-      const response = await axios.post(`${API_URL}/api/selayar/analyze-skp`, formData, {
-        headers: { 'Content-Type': 'multipart/form-data' },
+      try {
+      const response = await axios.post(`${API_URL}/api/selayar/analyze-skp`, formData, { headers: { 'Content-Type': 'multipart/form-data' }, });
+      // Simpan semua data hasil ke state
+      setSkpAnalysisResult({
+          artifact_analysis: response.data.artifact_analysis,
+          skor_kinerja: response.data.skor_kinerja,
+          scores_structured: response.data.scores_structured,
+          fileName: skpFileName // Sertakan nama file untuk profile card
       });
-      setSkpResultText(response.data.artifact_analysis);
-      const score = response.data.skor_kinerja;
-      setFinalPerformanceScore(score);
-      setCandidateScores((prev) => ({ ...prev, skor_kinerja: score }));
-    } catch (error) {
-      setError(`Error Analisis SKP: ${error.response?.data?.error || 'Gagal.'}`);
-    }
-
+      setCandidateScores(prev => ({ ...prev, skor_kinerja: response.data.skor_kinerja }));
+    } catch (error) { setError(`Error Analisis SKP: ${error.response?.data?.error || "Gagal."}`); }
     setLoadingSkp(false);
   };
 
   // --- FUNGSI 4: Export SKP ke PDF ---
   const handleExportSkpPdf = async () => {
-    if (!skpResultText) return;
-    setLoadingExport(true);
-    setError('');
+    if (!skpAnalysisResult || !skpAnalysisResult.artifact_analysis) return;
+        setLoading(true); // Gunakan state loadingSkp
+        setError('');
+        try {
+            const response = await axios.post(`${API_URL}/api/selayar/export-pdf`,
+                { 
+                    profile_markdown: skpAnalysisResult.artifact_analysis, 
+                    nama_file_skp: skpAnalysisResult.fileName 
+                },
+                { responseType: 'blob' } 
+            );
 
-    try {
-      // NOTE: Ganti endpoint jika sudah ada endpoint export PDF khusus untuk SELAYAR
-      const response = await axios.post(
-        `${API_URL}/api/lentera/export-pdf`,
-        {
-          profile_markdown: `# Profil Kinerja SELAYAR\n\n${skpResultText}`,
-          nama_kandidat: skpFileName.replace('.pdf', '').replace('.txt', '') || 'Pegawai',
-        },
-        { responseType: 'blob' }
-      );
-
-      const url = window.URL.createObjectURL(new Blob([response.data]));
-      const link = document.createElement('a');
-      link.href = url;
-
-      const contentDisposition = response.headers['content-disposition'];
-      let filename = `Profil_Selayar_${skpFileName.replace('.pdf', '').replace('.txt', '') || 'Pegawai'}.pdf`;
-      if (contentDisposition) {
-        const filenameMatch = contentDisposition.match(/filename="(.+)"/);
-        if (filenameMatch?.[1]) filename = filenameMatch[1];
-      }
-
-      link.setAttribute('download', filename);
-      document.body.appendChild(link);
-      link.click();
-      link.remove();
-      window.URL.revokeObjectURL(url);
-    } catch (err) {
-      setError(`Error Ekspor PDF SKP: ${err.response?.data?.error || err.message || 'Gagal.'}`);
-    }
-    setLoadingExport(false);
-  };
+      const url = window.URL.createObjectURL(new Blob([response.data])); 
+      const link = document.createElement('a'); link.href = url;
+      const contentDisposition = response.headers['content-disposition']; let filename = `Profil_Selayar_${(skpAnalysisResult.fileName || 'Pegawai').replace(/[\.](pdf|txt|docx|doc)$/,'')}.pdf`; 
+            if (contentDisposition) { const filenameMatch = contentDisposition.match(/filename="(.+)"/); if (filenameMatch?.[1]) filename = filenameMatch[1]; }
+            link.setAttribute('download', filename); document.body.appendChild(link); link.click(); link.parentNode.removeChild(link); window.URL.revokeObjectURL(url);
+        } catch (err) { setError(`Error Ekspor PDF SKP: ${err.response?.data?.error || err.message || "Gagal."}`); }
+        setLoading(false); // Matikan loadingSkp
+    };
 
   return (
     <div className="module-container">
@@ -197,54 +174,20 @@ function Selayar() {
       {/* --- BAGIAN 2: SKP --- */}
       <div className="card">
         <h3>2. Analisis Kinerja Internal (Upload SKP)</h3>
-        <label style={{ display: 'block', marginBottom: '5px' }}>
-          Upload Dokumen SKP / Laporan (PDF/TXT):
-        </label>
-        <input type="file" accept=".pdf,.txt" onChange={handleFileChange} disabled={loadingSkp} />
+        <label>Upload Dokumen SKP / Laporan (PDF/TXT/DOCX/DOC):</label>
+        <input type="file" accept=".pdf,.txt,.docx,.doc" onChange={handleFileChange} disabled={loadingSkp}/>
         {skpFileName && <span> File: {skpFileName}</span>}
-
-        <button
-          onClick={handleAnalyzeSkp}
-          disabled={loadingSkp || !selectedSkp}
-          style={{ marginTop: '15px' }}
-        >
+        <button onClick={handleAnalyzeSkp} disabled={loadingSkp || !selectedSkp} style={{marginTop: '15px'}}>
           {loadingSkp ? 'Menganalisis SKP...' : 'Analisis Dokumen Kinerja'}
         </button>
-
-        {skpResultText && (
-          <>
-            <button
-              onClick={handleExportSkpPdf}
-              disabled={loadingExport}
-              style={{
-                float: 'right',
-                background: 'var(--color-success)',
-                marginLeft: '10px',
-                marginTop: '10px',
-              }}
-            >
-              <Download size={18} style={{ marginRight: '5px' }} />{' '}
-              {loadingExport ? 'Mengekspor...' : 'Export PDF'}
-            </button>
-
-            <div className="result-box" style={{ marginTop: '60px' }}>
-              <AiOutput text={skpResultText} />
-              {finalPerformanceScore !== null && (
-                <p
-                  style={{
-                    marginTop: '20px',
-                    fontSize: '1.2rem',
-                    fontWeight: 'bold',
-                    color: 'var(--color-primary)',
-                    borderTop: '1px solid var(--color-border)',
-                    paddingTop: '15px',
-                  }}
-                >
-                  SKOR KINERJA FINAL (Estimasi AI): {finalPerformanceScore} / 100
-                </p>
-              )}
-            </div>
-          </>
+        
+        {/* Tampilkan Profile Card jika hasil sudah ada */}
+        {skpAnalysisResult && (
+           <ProfileCardSelayar
+              profileData={skpAnalysisResult}
+              onExportPdf={handleExportSkpPdf}
+              loading={loadingSkp}
+           />
         )}
       </div>
     </div>

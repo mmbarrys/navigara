@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, createContext, useContext } from 'react';
+import { useState, useEffect, useRef, createContext, useContext } from 'react';
 import { Routes, Route, Navigate, useLocation, Link, useNavigate } from 'react-router-dom';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
@@ -6,7 +6,8 @@ import Lentera from './pages/Lentera';
 import Selayar from './pages/Selayar';
 import Nakhoda from './pages/Nakhoda';
 import LandingPage from './pages/LandingPage'; // <-- IMPORT BARU
-import { LayoutDashboard, Target, Activity, Network, User } from 'lucide-react';
+import { LayoutDashboard, Target, Activity, Network, User, History } from 'lucide-react';
+import AssessmentHistory from './pages/AssessmentHistory';
 
 //export const API_URL = 'http://localhost:5000';
 export const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
@@ -51,6 +52,7 @@ function App() {
               <Route path="/lentera" element={<Lentera />} />
               <Route path="/selayar" element={<Selayar />} />
               <Route path="/nakhoda" element={<Nakhoda />} />
+              <Route path="/history" element={<AssessmentHistory />} />
               {/* Jika sudah login akses /login atau /, arahkan ke dashboard */}
               <Route path="/login" element={<Navigate to="/" />} />
               <Route path="*" element={<Navigate to="/" />} />
@@ -100,6 +102,7 @@ function Sidebar() {
     { href: "/lentera", label: "Lentera", icon: Target },
     { href: "/selayar", label: "Selayar", icon: Activity },
     { href: "/nakhoda", label: "Nakhoda", icon: Network },
+    { href: "/history", label: "Riwayat", icon: History },
   ];
   return (
     <nav className="sidebar">
