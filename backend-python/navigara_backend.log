@@ -577,3 +577,525 @@ NameError: name 'nama_kandidat' is not defined
 2025-10-26 16:31:23,824 INFO:werkzeug:_log(97): 127.0.0.1 - - [26/Oct/2025 16:31:23] "POST /api/lentera/grade-final HTTP/1.1" 200 -
 2025-10-26 16:33:11,936 INFO:app:export_lentera_pdf(336): LENTERA: Generate PDF untuk Kandidat Debug
 2025-10-26 16:33:12,418 INFO:werkzeug:_log(97): 127.0.0.1 - - [26/Oct/2025 16:33:12] "POST /api/lentera/export-pdf HTTP/1.1" 200 -
+2025-10-26 16:38:32,309 INFO:app:<module>(49): Server NAVIGARA (Python) v3.3 Final Dimulai...
+2025-10-26 16:38:32,310 INFO:app:<module>(56): Gemini OK: gemini-2.5-flash
+2025-10-26 16:38:32,316 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-26 16:38:32,319 INFO:app:<module>(60): Google Search OK.
+2025-10-26 16:38:32,370 INFO:werkzeug:_log(97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.10:5001
+2025-10-26 16:38:32,371 INFO:werkzeug:_log(97): [33mPress CTRL+C to quit[0m
+2025-10-26 16:39:20,722 INFO:app:lentera_generate_case(181): LENTERA Generate Case - Origin: https://navigara.netlify.app
+2025-10-26 16:39:20,729 INFO:app:lentera_generate_case(203): LENTERA (Tahap 1): Generate Case. Jabatan: Analis Kepegawaian, CV: Tidak Ada
+2025-10-26 16:39:20,730 INFO:app:lentera_generate_case(239): Prompt AI Generate Case:
+
+    Anda adalah Asesor AI BKN yang sangat ahli dalam membuat soal studi kasus **spesifik** untuk jabatan ASN.
+
+    DATA KANDIDAT:
+    - Jabatan yang **HARUS** menjadi fokus utama soal: **Analis Kepegawaian** 
+- CV Kandidat: Tidak disediakan.
+
+    TUGAS UTAMA:
+    Buat 1 (satu) soal studi kasus yang **SANGAT SPESIFIK dan RELEVAN** berdasarkan **jabatan spesifik yang dituju** berikut.
+    Soal ini WAJIB menguji **nalar, problem-solving, dan integritas** yang paling krusial untuk jabatan **Analis ...
+2025-10-26 16:39:20,731 INFO:app:call_gemini_api(108): Calling Gemini API (1097 chars)
+2025-10-26 16:39:39,399 INFO:app:lentera_generate_case(250): LENTERA Generate Case - Selesai.
+2025-10-26 16:39:39,402 INFO:werkzeug:_log(97): 127.0.0.1 - - [26/Oct/2025 16:39:39] "POST /api/lentera/generate-case HTTP/1.1" 200 -
+2025-10-26 16:40:21,862 INFO:app:lentera_grade_final(255): LENTERA Grade Final - Request Origin: https://navigara.netlify.app, Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryKCZbzaOnF2xES4lj
+2025-10-26 16:40:21,871 INFO:app:lentera_grade_final(292): Tidak ada teks dari file jawaban, menggunakan teks dari form field.
+2025-10-26 16:40:21,872 INFO:app:lentera_grade_final(301): LENTERA (Tahap 2): Melanjutkan Grade Final. Sumber Jawaban: Input Teks
+2025-10-26 16:40:21,873 INFO:app:run_osint_analysis(125): OSINT Engine: Google Search '"Kandidat" ASN OR PNS OR BKN'
+2025-10-26 16:40:24,003 INFO:app:call_gemini_api(108): Calling Gemini API (4879 chars)
+2025-10-26 16:40:53,610 WARNING:app:parse_score(150): Pola skor 'SKOR TOTAL POTENSI' tidak ditemukan. Default: 50
+2025-10-26 16:40:53,614 WARNING:app:parse_score(150): Pola skor 'Kualifikasi & Pengetahuan' tidak ditemukan. Default: 4
+2025-10-26 16:40:53,618 WARNING:app:parse_score(150): Pola skor 'Nalar & Logika' tidak ditemukan. Default: 4
+2025-10-26 16:40:53,622 WARNING:app:parse_score(150): Pola skor 'Problem Solving' tidak ditemukan. Default: 4
+2025-10-26 16:40:53,626 WARNING:app:parse_score(150): Pola skor 'Jejak Digital' tidak ditemukan. Default: 4
+2025-10-26 16:40:53,633 WARNING:app:parse_score(150): Pola skor 'Potensi Integritas' tidak ditemukan. Default: 4
+2025-10-26 16:40:53,713 INFO:werkzeug:_log(97): 127.0.0.1 - - [26/Oct/2025 16:40:53] "POST /api/lentera/grade-final HTTP/1.1" 200 -
+2025-10-27 04:55:16,871 INFO:app:<module>(49): Server NAVIGARA (Python) v3.3 Final Dimulai...
+2025-10-27 04:55:16,871 INFO:app:<module>(56): Gemini OK: gemini-2.5-flash
+2025-10-27 04:55:16,874 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-27 04:55:16,876 INFO:app:<module>(60): Google Search OK.
+2025-10-27 04:55:16,897 INFO:werkzeug:_log(97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.11:5001
+2025-10-27 04:55:16,898 INFO:werkzeug:_log(97): [33mPress CTRL+C to quit[0m
+2025-10-27 05:00:12,934 INFO:app:lentera_generate_case(181): LENTERA Generate Case - Origin: https://navigara.netlify.app
+2025-10-27 05:00:12,938 INFO:app:lentera_generate_case(203): LENTERA (Tahap 1): Generate Case. Jabatan: Pengawas Farmasi Ahli Pertama, CV: Tidak Ada
+2025-10-27 05:00:12,939 INFO:app:lentera_generate_case(239): Prompt AI Generate Case:
+
+    Anda adalah Asesor AI BKN yang sangat ahli dalam membuat soal studi kasus **spesifik** untuk jabatan ASN.
+
+    DATA KANDIDAT:
+    - Jabatan yang **HARUS** menjadi fokus utama soal: **Pengawas Farmasi Ahli Pertama** 
+- CV Kandidat: Tidak disediakan.
+
+    TUGAS UTAMA:
+    Buat 1 (satu) soal studi kasus yang **SANGAT SPESIFIK dan RELEVAN** berdasarkan **jabatan spesifik yang dituju** berikut.
+    Soal ini WAJIB menguji **nalar, problem-solving, dan integritas** yang paling krusial untuk jabata...
+2025-10-27 05:00:12,939 INFO:app:call_gemini_api(108): Calling Gemini API (1163 chars)
+2025-10-27 05:00:29,703 INFO:app:lentera_generate_case(250): LENTERA Generate Case - Selesai.
+2025-10-27 05:00:29,705 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:00:29] "POST /api/lentera/generate-case HTTP/1.1" 200 -
+2025-10-27 05:00:33,716 INFO:app:selayar_analyze_skp(389): SELAYAR (SKP): Analyze Artifact. File: SKP_-_Tina_Wahyuningtias.pdf
+2025-10-27 05:00:33,780 INFO:app:extract_text_from_file(98): Ekstraksi teks dari SKP_-_Tina_Wahyuningtias.pdf berhasil.
+2025-10-27 05:00:33,780 INFO:app:call_byteplus_api(113): Calling Byteplus API (9744 chars)
+2025-10-27 05:00:34,709 ERROR:app:call_byteplus_api(121): Error API Byteplus: 401 Client Error: Unauthorized for url: https://ark.ap-southeast.bytepluses.com/api/v3/chat/completions
+2025-10-27 05:00:34,711 WARNING:app:parse_score(150): Pola skor 'Pencapaian Target' tidak ditemukan. Default: 4
+2025-10-27 05:00:34,712 WARNING:app:parse_score(150): Pola skor 'Kontribusi & Inisiatif' tidak ditemukan. Default: 4
+2025-10-27 05:00:34,713 WARNING:app:parse_score(150): Pola skor 'Kualitas Pelaporan' tidak ditemukan. Default: 4
+2025-10-27 05:00:34,721 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:00:34] "POST /api/selayar/analyze-skp HTTP/1.1" 200 -
+2025-10-27 05:01:58,426 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:01:58] "OPTIONS /api/selayar/osint-sentiment HTTP/1.1" 200 -
+2025-10-27 05:01:58,501 INFO:app:selayar_osint_sentiment(348): SELAYAR (OSINT): Dipicu. Program: Digitalisasi Layanan Pertanahan, Provider: gemini
+2025-10-27 05:01:58,501 INFO:app:run_osint_analysis(125): OSINT Engine: Google Search 'Digitalisasi Layanan Pertanahan'
+2025-10-27 05:01:59,548 INFO:app:call_gemini_api(108): Calling Gemini API (1253 chars)
+2025-10-27 05:02:07,976 ERROR:app:selayar_osint_sentiment(378): Gagal log Selayar-OSINT: name 'sentimen_umum' is not defined
+2025-10-27 05:02:07,976 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:02:07] "POST /api/selayar/osint-sentiment HTTP/1.1" 200 -
+2025-10-27 05:15:02,453 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:15:02] "GET /api/history HTTP/1.1" 200 -
+2025-10-27 05:15:02,470 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:15:02] "GET /api/history HTTP/1.1" 200 -
+2025-10-27 05:15:28,240 INFO:app:selayar_analyze_skp(389): SELAYAR (SKP): Analyze Artifact. File: SKP_Budi_Santoso.docx
+2025-10-27 05:15:28,267 INFO:app:extract_text_from_file(98): Ekstraksi teks dari SKP_Budi_Santoso.docx berhasil.
+2025-10-27 05:15:28,268 INFO:app:call_byteplus_api(113): Calling Byteplus API (2373 chars)
+2025-10-27 05:15:29,175 ERROR:app:call_byteplus_api(121): Error API Byteplus: 401 Client Error: Unauthorized for url: https://ark.ap-southeast.bytepluses.com/api/v3/chat/completions
+2025-10-27 05:15:29,177 WARNING:app:parse_score(150): Pola skor 'Pencapaian Target' tidak ditemukan. Default: 4
+2025-10-27 05:15:29,177 WARNING:app:parse_score(150): Pola skor 'Kontribusi & Inisiatif' tidak ditemukan. Default: 4
+2025-10-27 05:15:29,177 WARNING:app:parse_score(150): Pola skor 'Kualitas Pelaporan' tidak ditemukan. Default: 4
+2025-10-27 05:15:29,184 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:15:29] "POST /api/selayar/analyze-skp HTTP/1.1" 200 -
+2025-10-27 05:17:26,767 INFO:app:selayar_analyze_skp(389): SELAYAR (SKP): Analyze Artifact. File: SKP_-_Tina_Wahyuningtias.pdf
+2025-10-27 05:17:26,783 INFO:app:extract_text_from_file(98): Ekstraksi teks dari SKP_-_Tina_Wahyuningtias.pdf berhasil.
+2025-10-27 05:17:26,783 INFO:app:call_byteplus_api(113): Calling Byteplus API (9744 chars)
+2025-10-27 05:17:27,449 ERROR:app:call_byteplus_api(121): Error API Byteplus: 401 Client Error: Unauthorized for url: https://ark.ap-southeast.bytepluses.com/api/v3/chat/completions
+2025-10-27 05:17:27,450 WARNING:app:parse_score(150): Pola skor 'Pencapaian Target' tidak ditemukan. Default: 4
+2025-10-27 05:17:27,450 WARNING:app:parse_score(150): Pola skor 'Kontribusi & Inisiatif' tidak ditemukan. Default: 4
+2025-10-27 05:17:27,451 WARNING:app:parse_score(150): Pola skor 'Kualitas Pelaporan' tidak ditemukan. Default: 4
+2025-10-27 05:17:27,465 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:17:27] "POST /api/selayar/analyze-skp HTTP/1.1" 200 -
+2025-10-27 05:21:39,313 INFO:app:selayar_analyze_skp(389): SELAYAR (SKP): Analyze Artifact. File: SKP_-_Tina_Wahyuningtias.pdf
+2025-10-27 05:21:39,327 INFO:app:extract_text_from_file(98): Ekstraksi teks dari SKP_-_Tina_Wahyuningtias.pdf berhasil.
+2025-10-27 05:21:39,327 INFO:app:call_byteplus_api(113): Calling Byteplus API (9744 chars)
+2025-10-27 05:21:40,158 ERROR:app:call_byteplus_api(121): Error API Byteplus: 401 Client Error: Unauthorized for url: https://ark.ap-southeast.bytepluses.com/api/v3/chat/completions
+2025-10-27 05:21:40,161 WARNING:app:parse_score(150): Pola skor 'Pencapaian Target' tidak ditemukan. Default: 4
+2025-10-27 05:21:40,161 WARNING:app:parse_score(150): Pola skor 'Kontribusi & Inisiatif' tidak ditemukan. Default: 4
+2025-10-27 05:21:40,161 WARNING:app:parse_score(150): Pola skor 'Kualitas Pelaporan' tidak ditemukan. Default: 4
+2025-10-27 05:21:40,168 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:21:40] "POST /api/selayar/analyze-skp HTTP/1.1" 200 -
+2025-10-27 05:21:46,043 INFO:app:selayar_analyze_skp(389): SELAYAR (SKP): Analyze Artifact. File: SKP_-_Tina_Wahyuningtias.pdf
+2025-10-27 05:21:46,054 INFO:app:extract_text_from_file(98): Ekstraksi teks dari SKP_-_Tina_Wahyuningtias.pdf berhasil.
+2025-10-27 05:21:46,055 INFO:app:call_byteplus_api(113): Calling Byteplus API (9744 chars)
+2025-10-27 05:21:46,796 ERROR:app:call_byteplus_api(121): Error API Byteplus: 401 Client Error: Unauthorized for url: https://ark.ap-southeast.bytepluses.com/api/v3/chat/completions
+2025-10-27 05:21:46,798 WARNING:app:parse_score(150): Pola skor 'Pencapaian Target' tidak ditemukan. Default: 4
+2025-10-27 05:21:46,799 WARNING:app:parse_score(150): Pola skor 'Kontribusi & Inisiatif' tidak ditemukan. Default: 4
+2025-10-27 05:21:46,799 WARNING:app:parse_score(150): Pola skor 'Kualitas Pelaporan' tidak ditemukan. Default: 4
+2025-10-27 05:21:46,805 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:21:46] "POST /api/selayar/analyze-skp HTTP/1.1" 200 -
+2025-10-27 05:21:58,526 INFO:app:selayar_analyze_skp(389): SELAYAR (SKP): Analyze Artifact. File: skp-2023-anas-ma-ruf-hidayat-pr_d8f38f6ef86e05a5fd0f7a922a167cf2.pdf
+2025-10-27 05:21:58,532 INFO:app:extract_text_from_file(98): Ekstraksi teks dari skp-2023-anas-ma-ruf-hidayat-pr_d8f38f6ef86e05a5fd0f7a922a167cf2.pdf berhasil.
+2025-10-27 05:21:58,543 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:21:58] "[35m[1mPOST /api/selayar/analyze-skp HTTP/1.1[0m" 500 -
+2025-10-27 05:31:07,532 INFO:app:<module>(49): Server NAVIGARA (Python) v3.4 Final SKP Dimulai...
+2025-10-27 05:31:07,533 INFO:app:<module>(56): Gemini OK: gemini-2.5-flash
+2025-10-27 05:31:07,535 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-27 05:31:07,537 INFO:app:<module>(60): Google Search OK.
+2025-10-27 05:31:07,562 INFO:werkzeug:_log(97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.11:5001
+2025-10-27 05:31:07,562 INFO:werkzeug:_log(97): [33mPress CTRL+C to quit[0m
+2025-10-27 05:31:27,721 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:31:27] "[33mPOST /api/selayar/analyze-skp HTTP/1.1[0m" 404 -
+2025-10-27 05:31:30,995 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:31:30] "GET /api/history HTTP/1.1" 200 -
+2025-10-27 05:31:31,005 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:31:31] "GET /api/history HTTP/1.1" 200 -
+2025-10-27 05:31:52,144 INFO:app:delete_history_entry(573): Log entry 5616536c-cd90-4ac7-8ae7-048ab6d40856 dihapus.
+2025-10-27 05:31:52,146 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:31:52] "DELETE /api/history/5616536c-cd90-4ac7-8ae7-048ab6d40856 HTTP/1.1" 200 -
+2025-10-27 05:31:52,159 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:31:52] "GET /api/history HTTP/1.1" 200 -
+2025-10-27 05:31:55,782 INFO:app:delete_history_entry(573): Log entry 507c3a15-f017-43b7-bdeb-e7f778302e31 dihapus.
+2025-10-27 05:31:55,782 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:31:55] "DELETE /api/history/507c3a15-f017-43b7-bdeb-e7f778302e31 HTTP/1.1" 200 -
+2025-10-27 05:31:55,795 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:31:55] "GET /api/history HTTP/1.1" 200 -
+2025-10-27 05:31:59,069 INFO:app:delete_history_entry(573): Log entry 33f5504e-3f27-4e13-a632-341bab0f314b dihapus.
+2025-10-27 05:31:59,070 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:31:59] "DELETE /api/history/33f5504e-3f27-4e13-a632-341bab0f314b HTTP/1.1" 200 -
+2025-10-27 05:31:59,082 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:31:59] "GET /api/history HTTP/1.1" 200 -
+2025-10-27 05:32:11,617 INFO:app:delete_history_entry(573): Log entry a77a6ea4-c8ba-4213-951a-c24ce96fc626 dihapus.
+2025-10-27 05:32:11,618 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:32:11] "DELETE /api/history/a77a6ea4-c8ba-4213-951a-c24ce96fc626 HTTP/1.1" 200 -
+2025-10-27 05:32:11,629 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:32:11] "GET /api/history HTTP/1.1" 200 -
+2025-10-27 05:32:16,375 INFO:app:delete_history_entry(573): Log entry 59cb41b5-36e3-406d-aa5b-ef9170f59dbf dihapus.
+2025-10-27 05:32:16,375 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:32:16] "DELETE /api/history/59cb41b5-36e3-406d-aa5b-ef9170f59dbf HTTP/1.1" 200 -
+2025-10-27 05:32:16,387 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:32:16] "GET /api/history HTTP/1.1" 200 -
+2025-10-27 05:32:20,502 INFO:app:delete_history_entry(573): Log entry 8eac8f18-5816-4c5c-8bd4-15eb54408099 dihapus.
+2025-10-27 05:32:20,503 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:32:20] "DELETE /api/history/8eac8f18-5816-4c5c-8bd4-15eb54408099 HTTP/1.1" 200 -
+2025-10-27 05:32:20,518 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:32:20] "GET /api/history HTTP/1.1" 200 -
+2025-10-27 05:32:29,804 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:32:29] "[33mPOST /api/selayar/analyze-skp HTTP/1.1[0m" 404 -
+2025-10-27 05:32:51,194 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:32:51] "[33mPOST /api/selayar/analyze-skp HTTP/1.1[0m" 404 -
+2025-10-27 05:33:25,144 INFO:app:selayar_osint_sentiment(370): SELAYAR (OSINT): Dipicu. Program: Digitalisasi Layanan Pertanahan, Provider: gemini
+2025-10-27 05:33:25,145 INFO:app:run_osint_analysis(125): OSINT Engine: Google Search 'Digitalisasi Layanan Pertanahan'
+2025-10-27 05:33:26,155 INFO:app:call_gemini_api(108): Calling Gemini API (1255 chars)
+2025-10-27 05:33:35,483 ERROR:app:selayar_osint_sentiment(410): Gagal log Selayar-OSINT: name 'sentimen_umum' is not defined
+2025-10-27 05:33:35,483 ERROR:app:log_exception(875): Exception on /api/selayar/osint-sentiment [POST]
+Traceback (most recent call last):
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\app.py", line 412, in selayar_osint_sentiment
+    app.logger.info(f"SELAYAR OSINT Berhasil. Sentimen: {sentimen_umum}, Skor: {skor_sentimen}")
+                                                         ^^^^^^^^^^^^^
+NameError: name 'sentimen_umum' is not defined
+2025-10-27 05:33:35,499 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:33:35] "[35m[1mPOST /api/selayar/osint-sentiment HTTP/1.1[0m" 500 -
+2025-10-27 05:41:59,872 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:41:59] "OPTIONS /api/selayar/osint-sentiment HTTP/1.1" 200 -
+2025-10-27 05:41:59,945 INFO:app:selayar_osint_sentiment(370): SELAYAR (OSINT): Dipicu. Program: Digitalisasi Layanan Pertanahan, Provider: gemini
+2025-10-27 05:41:59,945 INFO:app:run_osint_analysis(125): OSINT Engine: Google Search 'Digitalisasi Layanan Pertanahan'
+2025-10-27 05:42:00,509 INFO:app:call_gemini_api(108): Calling Gemini API (1255 chars)
+2025-10-27 05:42:10,736 ERROR:app:selayar_osint_sentiment(410): Gagal log Selayar-OSINT: name 'sentimen_umum' is not defined
+2025-10-27 05:42:10,736 ERROR:app:log_exception(875): Exception on /api/selayar/osint-sentiment [POST]
+Traceback (most recent call last):
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\app.py", line 412, in selayar_osint_sentiment
+    except Exception as e: db.session.rollback(); app.logger.error(f"Gagal log Selayar-OSINT: {str(e)}")
+                                                         ^^^^^^^^^^^^^
+NameError: name 'sentimen_umum' is not defined
+2025-10-27 05:42:10,749 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:42:10] "[35m[1mPOST /api/selayar/osint-sentiment HTTP/1.1[0m" 500 -
+2025-10-27 05:43:37,304 INFO:app:selayar_osint_sentiment(370): SELAYAR (OSINT): Dipicu. Program: Digitalisasi Layanan  di Pedesaan, Provider: byteplus
+2025-10-27 05:43:37,305 INFO:app:run_osint_analysis(125): OSINT Engine: Google Search 'Digitalisasi Layanan  di Pedesaan'
+2025-10-27 05:43:37,811 INFO:app:call_byteplus_api(113): Calling Byteplus API (1282 chars)
+2025-10-27 05:43:38,750 ERROR:app:call_byteplus_api(121): Error API Byteplus: 401 Client Error: Unauthorized for url: https://ark.ap-southeast.bytepluses.com/api/v3/chat/completions
+2025-10-27 05:43:38,753 WARNING:app:parse_score(169): Pola skor 'Skor Sentimen' tidak ditemukan. Default: 50
+2025-10-27 05:43:38,753 ERROR:app:selayar_osint_sentiment(410): Gagal log Selayar-OSINT: name 'sentimen_umum' is not defined
+2025-10-27 05:43:38,753 ERROR:app:log_exception(875): Exception on /api/selayar/osint-sentiment [POST]
+Traceback (most recent call last):
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\app.py", line 412, in selayar_osint_sentiment
+    app.logger.warning(f"Dokumen SKP {filename} terlalu panjang, dipotong jadi 7000 karakter.")
+                                                     ^^^^^^^^^^^^^
+NameError: name 'sentimen_umum' is not defined
+2025-10-27 05:43:38,757 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:43:38] "[35m[1mPOST /api/selayar/osint-sentiment HTTP/1.1[0m" 500 -
+2025-10-27 05:44:00,751 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:44:00] "[33mPOST /api/selayar/analyze-skp HTTP/1.1[0m" 404 -
+2025-10-27 05:44:22,764 INFO:app:selayar_osint_sentiment(370): SELAYAR (OSINT): Dipicu. Program: Digitalisasi Layanan  di Pedesaan, Provider: gemini
+2025-10-27 05:44:22,764 INFO:app:run_osint_analysis(125): OSINT Engine: Google Search 'Digitalisasi Layanan  di Pedesaan'
+2025-10-27 05:44:23,194 INFO:app:call_gemini_api(108): Calling Gemini API (1282 chars)
+2025-10-27 05:44:36,636 ERROR:app:selayar_osint_sentiment(410): Gagal log Selayar-OSINT: name 'sentimen_umum' is not defined
+2025-10-27 05:44:36,636 ERROR:app:log_exception(875): Exception on /api/selayar/osint-sentiment [POST]
+Traceback (most recent call last):
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\app.py", line 412, in selayar_osint_sentiment
+    app.logger.warning(f"Dokumen SKP {filename} terlalu panjang, dipotong jadi 7000 karakter.")
+                                                     ^^^^^^^^^^^^^
+NameError: name 'sentimen_umum' is not defined
+2025-10-27 05:44:36,639 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:44:36] "[35m[1mPOST /api/selayar/osint-sentiment HTTP/1.1[0m" 500 -
+2025-10-27 05:45:27,825 INFO:app:lentera_generate_case(202): LENTERA Generate Case - Origin: None
+2025-10-27 05:45:27,857 INFO:app:extract_text_from_file(98): Ekstraksi teks dari CV_Citra_Lestari.pdf berhasil.
+2025-10-27 05:45:27,857 INFO:app:lentera_generate_case(220): CV CV_Citra_Lestari.pdf OK.
+2025-10-27 05:45:27,857 INFO:app:lentera_generate_case(224): LENTERA (Tahap 1): Generate Case. Jabatan: Asesor Muda, CV: Ada
+2025-10-27 05:45:27,857 INFO:app:lentera_generate_case(260): Prompt AI Generate Case:
+
+    Anda adalah Asesor AI BKN yang sangat ahli dalam membuat soal studi kasus **spesifik** untuk jabatan ASN.
+
+    DATA KANDIDAT:
+    - Jabatan yang **HARUS** menjadi fokus utama soal: **Asesor Muda** 
+- Ringkasan CV Kandidat: CV - Citra Lestari  
+Ringkasan: Analis Kebijakan proaktif dengan 3+ tahun pengalaman di pemerintah daerah. 
+Fokus pada analisis data untuk reformasi pelayanan publik. Terampil dalam Python 
+(Pandas), SQL, dan visualisasi data. Mencari tantangan baru di tingkat nasional. 
+...
+2025-10-27 05:45:27,858 INFO:app:call_gemini_api(108): Calling Gemini API (1772 chars)
+2025-10-27 05:45:50,830 INFO:app:lentera_generate_case(271): LENTERA Generate Case - Selesai.
+2025-10-27 05:45:50,832 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:45:50] "POST /api/lentera/generate-case HTTP/1.1" 200 -
+2025-10-27 05:59:03,633 INFO:app:<module>(49): Server NAVIGARA (Python) v3.4 Final SKP Dimulai...
+2025-10-27 05:59:03,633 INFO:app:<module>(56): Gemini OK: gemini-2.5-flash
+2025-10-27 05:59:03,636 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-27 05:59:03,638 INFO:app:<module>(60): Google Search OK.
+2025-10-27 05:59:03,657 INFO:werkzeug:_log(97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.11:5001
+2025-10-27 05:59:03,657 INFO:werkzeug:_log(97): [33mPress CTRL+C to quit[0m
+2025-10-27 05:59:13,711 INFO:app:selayar_osint_sentiment(382): SELAYAR (OSINT): Dipicu. Program: Digitalisasi Layanan Pedesaan, Provider: gemini
+2025-10-27 05:59:13,711 INFO:app:run_osint_analysis(125): OSINT Engine: Google Search 'Digitalisasi Layanan Pedesaan'
+2025-10-27 05:59:14,478 INFO:app:call_gemini_api(108): Calling Gemini API (654 chars)
+2025-10-27 05:59:19,646 INFO:app:selayar_osint_sentiment(408): Log Selayar-OSINT disimpan.
+2025-10-27 05:59:19,646 INFO:app:selayar_osint_sentiment(414): SELAYAR OSINT Berhasil. Sentimen:  Positif, Skor: 92
+2025-10-27 05:59:19,648 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:59:19] "POST /api/selayar/osint-sentiment HTTP/1.1" 200 -
+2025-10-27 05:59:38,777 INFO:app:selayar_analyze_skp(423): SELAYAR (SKP): Analyze Artifact. File: SKP_-_Tina_Wahyuningtias.pdf
+2025-10-27 05:59:38,792 INFO:app:extract_text_from_file(98): Ekstraksi teks dari SKP_-_Tina_Wahyuningtias.pdf berhasil.
+2025-10-27 05:59:38,793 INFO:app:call_gemini_api(108): Calling Gemini API (10127 chars)
+2025-10-27 05:59:55,924 INFO:app:selayar_analyze_skp(507): Log Selayar-SKP disimpan.
+2025-10-27 05:59:55,925 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 05:59:55] "POST /api/selayar/analyze-skp HTTP/1.1" 200 -
+2025-10-27 06:00:50,209 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 06:00:50] "GET /api/history HTTP/1.1" 200 -
+2025-10-27 06:00:50,221 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 06:00:50] "GET /api/history HTTP/1.1" 200 -
+2025-10-27 06:39:56,639 INFO:app:<module>(49): Server NAVIGARA (Python) v3.4 Final SKP Dimulai...
+2025-10-27 06:39:56,640 INFO:app:<module>(56): Gemini OK: gemini-2.5-flash
+2025-10-27 06:39:56,645 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-27 06:39:56,647 INFO:app:<module>(60): Google Search OK.
+2025-10-27 06:39:56,679 INFO:werkzeug:_log(97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.11:5001
+2025-10-27 06:39:56,679 INFO:werkzeug:_log(97): [33mPress CTRL+C to quit[0m
+2025-10-27 06:40:25,265 INFO:app:selayar_analyze_skp(423): SELAYAR (SKP): Analyze Artifact. File: ilide.info-sukadi-penil-mar-pr_9383eb27ecfa0ee75e00298a107903e0.pdf
+2025-10-27 06:40:25,385 INFO:app:extract_text_from_file(98): Ekstraksi teks dari ilide.info-sukadi-penil-mar-pr_9383eb27ecfa0ee75e00298a107903e0.pdf berhasil.
+2025-10-27 06:40:25,387 INFO:app:call_byteplus_api(113): Calling Byteplus API (7080 chars)
+2025-10-27 06:40:27,078 ERROR:app:call_byteplus_api(121): Error API Byteplus: 401 Client Error: Unauthorized for url: https://ark.ap-southeast.bytepluses.com/api/v3/chat/completions
+2025-10-27 06:40:27,082 WARNING:app:parse_score(169): Pola skor 'SKOR KINERJA FINAL' tidak ditemukan. Default: 0
+2025-10-27 06:40:27,084 WARNING:app:parse_score(169): Pola skor 'Pencapaian Target' tidak ditemukan. Default: 0
+2025-10-27 06:40:27,086 WARNING:app:parse_score(169): Pola skor 'Kontribusi & Inisiatif' tidak ditemukan. Default: 0
+2025-10-27 06:40:27,088 WARNING:app:parse_score(169): Pola skor 'Kualitas Pelaporan' tidak ditemukan. Default: 0
+2025-10-27 06:40:27,169 INFO:app:selayar_analyze_skp(507): Log Selayar-SKP disimpan.
+2025-10-27 06:40:27,172 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 06:40:27] "POST /api/selayar/analyze-skp HTTP/1.1" 200 -
+2025-10-27 06:40:37,809 INFO:app:selayar_analyze_skp(423): SELAYAR (SKP): Analyze Artifact. File: ilide.info-sukadi-penil-mar-pr_9383eb27ecfa0ee75e00298a107903e0.pdf
+2025-10-27 06:40:37,866 INFO:app:extract_text_from_file(98): Ekstraksi teks dari ilide.info-sukadi-penil-mar-pr_9383eb27ecfa0ee75e00298a107903e0.pdf berhasil.
+2025-10-27 06:40:37,869 INFO:app:call_gemini_api(108): Calling Gemini API (7080 chars)
+2025-10-27 06:41:00,096 INFO:app:selayar_analyze_skp(507): Log Selayar-SKP disimpan.
+2025-10-27 06:41:00,099 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 06:41:00] "POST /api/selayar/analyze-skp HTTP/1.1" 200 -
+2025-10-27 06:41:15,422 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 06:41:15] "GET /api/history HTTP/1.1" 200 -
+2025-10-27 06:41:15,470 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 06:41:15] "GET /api/history HTTP/1.1" 200 -
+2025-10-27 06:41:42,062 INFO:app:selayar_analyze_skp(423): SELAYAR (SKP): Analyze Artifact. File: ilide.info-4-form-penilaian-skp-analis-sdm-aparatur-andreas-pr_367a7dd5e4b389d7bb84da60f1fd5659.pdf
+2025-10-27 06:41:42,107 INFO:app:extract_text_from_file(98): Ekstraksi teks dari ilide.info-4-form-penilaian-skp-analis-sdm-aparatur-andreas-pr_367a7dd5e4b389d7bb84da60f1fd5659.pdf berhasil.
+2025-10-27 06:41:42,109 INFO:app:call_byteplus_api(113): Calling Byteplus API (7799 chars)
+2025-10-27 06:41:43,732 ERROR:app:call_byteplus_api(121): Error API Byteplus: 401 Client Error: Unauthorized for url: https://ark.ap-southeast.bytepluses.com/api/v3/chat/completions
+2025-10-27 06:41:43,735 WARNING:app:parse_score(169): Pola skor 'SKOR KINERJA FINAL' tidak ditemukan. Default: 0
+2025-10-27 06:41:43,735 WARNING:app:parse_score(169): Pola skor 'Pencapaian Target' tidak ditemukan. Default: 0
+2025-10-27 06:41:43,735 WARNING:app:parse_score(169): Pola skor 'Kontribusi & Inisiatif' tidak ditemukan. Default: 0
+2025-10-27 06:41:43,736 WARNING:app:parse_score(169): Pola skor 'Kualitas Pelaporan' tidak ditemukan. Default: 0
+2025-10-27 06:41:43,788 INFO:app:selayar_analyze_skp(507): Log Selayar-SKP disimpan.
+2025-10-27 06:41:43,789 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 06:41:43] "POST /api/selayar/analyze-skp HTTP/1.1" 200 -
+2025-10-27 07:50:07,788 INFO:app:<module>(49): Server NAVIGARA (Python) v3.4 Final SKP Dimulai...
+2025-10-27 07:50:07,790 INFO:app:<module>(56): Gemini OK: gemini-2.5-flash
+2025-10-27 07:50:07,795 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-27 07:50:07,798 INFO:app:<module>(60): Google Search OK.
+2025-10-27 07:50:07,852 INFO:werkzeug:_log(97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.11:5001
+2025-10-27 07:50:07,853 INFO:werkzeug:_log(97): [33mPress CTRL+C to quit[0m
+2025-10-27 07:50:14,679 INFO:app:selayar_analyze_skp(423): SELAYAR (SKP V3): Analyze Artifact. File: G.T_Nadya_Noor_Safitri-EKP.pdf
+2025-10-27 07:50:14,767 INFO:app:extract_text_from_file(98): Ekstraksi teks dari G.T_Nadya_Noor_Safitri-EKP.pdf berhasil.
+2025-10-27 07:50:14,770 INFO:app:call_byteplus_api(113): Calling Byteplus API (10448 chars)
+2025-10-27 07:50:16,693 ERROR:app:call_byteplus_api(121): Error API Byteplus: 401 Client Error: Unauthorized for url: https://ark.ap-southeast.bytepluses.com/api/v3/chat/completions
+2025-10-27 07:50:16,699 ERROR:app:selayar_analyze_skp(514): Panggilan AI gagal SKP G.T_Nadya_Noor_Safitri-EKP.pdf: Error API Byteplus: 401 Client Error: Unauthorized for url: https://ark.ap-southeast.bytepluses.com/api/v3/chat/completions
+2025-10-27 07:50:16,702 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 07:50:16] "[35m[1mPOST /api/selayar/analyze-skp HTTP/1.1[0m" 500 -
+2025-10-27 07:50:25,955 INFO:app:selayar_analyze_skp(423): SELAYAR (SKP V3): Analyze Artifact. File: G.T_Nadya_Noor_Safitri-EKP.pdf
+2025-10-27 07:50:26,004 INFO:app:extract_text_from_file(98): Ekstraksi teks dari G.T_Nadya_Noor_Safitri-EKP.pdf berhasil.
+2025-10-27 07:50:26,006 INFO:app:call_gemini_api(108): Calling Gemini API (10448 chars)
+2025-10-27 07:50:42,021 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 07:50:42] "POST /api/selayar/analyze-skp HTTP/1.1" 200 -
+2025-10-27 08:09:04,927 INFO:app:selayar_analyze_skp(423): SELAYAR (SKP V3): Analyze Artifact. File: ilide.info-4-form-penilaian-skp-analis-sdm-aparatur-andreas-pr_367a7dd5e4b389d7bb84da60f1fd5659.pdf
+2025-10-27 08:09:04,992 INFO:app:extract_text_from_file(98): Ekstraksi teks dari ilide.info-4-form-penilaian-skp-analis-sdm-aparatur-andreas-pr_367a7dd5e4b389d7bb84da60f1fd5659.pdf berhasil.
+2025-10-27 08:09:04,994 INFO:app:call_byteplus_api(113): Calling Byteplus API (10114 chars)
+2025-10-27 08:09:06,773 ERROR:app:call_byteplus_api(121): Error API Byteplus: 401 Client Error: Unauthorized for url: https://ark.ap-southeast.bytepluses.com/api/v3/chat/completions
+2025-10-27 08:09:06,778 ERROR:app:selayar_analyze_skp(514): Panggilan AI gagal SKP ilide.info-4-form-penilaian-skp-analis-sdm-aparatur-andreas-pr_367a7dd5e4b389d7bb84da60f1fd5659.pdf: Error API Byteplus: 401 Client Error: Unauthorized for url: https://ark.ap-southeast.bytepluses.com/api/v3/chat/completions
+2025-10-27 08:09:06,780 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 08:09:06] "[35m[1mPOST /api/selayar/analyze-skp HTTP/1.1[0m" 500 -
+2025-10-27 08:09:54,465 INFO:app:selayar_analyze_skp(423): SELAYAR (SKP V3): Analyze Artifact. File: ilide.info-4-form-penilaian-skp-analis-sdm-aparatur-andreas-pr_367a7dd5e4b389d7bb84da60f1fd5659.pdf
+2025-10-27 08:09:54,495 INFO:app:extract_text_from_file(98): Ekstraksi teks dari ilide.info-4-form-penilaian-skp-analis-sdm-aparatur-andreas-pr_367a7dd5e4b389d7bb84da60f1fd5659.pdf berhasil.
+2025-10-27 08:09:54,496 INFO:app:call_gemini_api(108): Calling Gemini API (10114 chars)
+2025-10-27 08:10:08,786 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 08:10:08] "POST /api/selayar/analyze-skp HTTP/1.1" 200 -
+2025-10-27 08:22:36,969 INFO:app:<module>(49): Server NAVIGARA (Python) v3.4 Final SKP Dimulai...
+2025-10-27 08:22:36,970 INFO:app:<module>(56): Gemini OK: gemini-2.5-flash
+2025-10-27 08:22:36,975 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-27 08:22:36,978 INFO:app:<module>(60): Google Search OK.
+2025-10-27 08:22:37,025 INFO:werkzeug:_log(97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.11:5001
+2025-10-27 08:22:37,026 INFO:werkzeug:_log(97): [33mPress CTRL+C to quit[0m
+2025-10-27 08:25:14,227 INFO:app:selayar_analyze_skp(423): SELAYAR (SKP V3): Analyze Artifact. File: G.T_Nadya_Noor_Safitri-EKP.pdf
+2025-10-27 08:25:14,274 INFO:app:extract_text_from_file(98): Ekstraksi teks dari G.T_Nadya_Noor_Safitri-EKP.pdf berhasil.
+2025-10-27 08:25:14,276 INFO:app:call_byteplus_api(113): Calling Byteplus API (10448 chars)
+2025-10-27 08:25:16,147 ERROR:app:call_byteplus_api(121): Error API Byteplus: 401 Client Error: Unauthorized for url: https://ark.ap-southeast.bytepluses.com/api/v3/chat/completions
+2025-10-27 08:25:16,155 ERROR:app:selayar_analyze_skp(514): Panggilan AI gagal SKP G.T_Nadya_Noor_Safitri-EKP.pdf: Error API Byteplus: 401 Client Error: Unauthorized for url: https://ark.ap-southeast.bytepluses.com/api/v3/chat/completions
+2025-10-27 08:25:16,161 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 08:25:16] "[35m[1mPOST /api/selayar/analyze-skp HTTP/1.1[0m" 500 -
+2025-10-27 08:25:26,201 INFO:app:selayar_analyze_skp(423): SELAYAR (SKP V3): Analyze Artifact. File: G.T_Nadya_Noor_Safitri-EKP.pdf
+2025-10-27 08:25:26,267 INFO:app:extract_text_from_file(98): Ekstraksi teks dari G.T_Nadya_Noor_Safitri-EKP.pdf berhasil.
+2025-10-27 08:25:26,269 INFO:app:call_byteplus_api(113): Calling Byteplus API (10448 chars)
+2025-10-27 08:25:28,476 ERROR:app:call_byteplus_api(121): Error API Byteplus: 401 Client Error: Unauthorized for url: https://ark.ap-southeast.bytepluses.com/api/v3/chat/completions
+2025-10-27 08:25:28,479 ERROR:app:selayar_analyze_skp(514): Panggilan AI gagal SKP G.T_Nadya_Noor_Safitri-EKP.pdf: Error API Byteplus: 401 Client Error: Unauthorized for url: https://ark.ap-southeast.bytepluses.com/api/v3/chat/completions
+2025-10-27 08:25:28,480 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 08:25:28] "[35m[1mPOST /api/selayar/analyze-skp HTTP/1.1[0m" 500 -
+2025-10-27 08:25:35,573 INFO:app:selayar_analyze_skp(423): SELAYAR (SKP V3): Analyze Artifact. File: G.T_Nadya_Noor_Safitri-EKP.pdf
+2025-10-27 08:25:35,632 INFO:app:extract_text_from_file(98): Ekstraksi teks dari G.T_Nadya_Noor_Safitri-EKP.pdf berhasil.
+2025-10-27 08:25:35,634 INFO:app:call_gemini_api(108): Calling Gemini API (10448 chars)
+2025-10-27 08:25:51,078 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 08:25:51] "POST /api/selayar/analyze-skp HTTP/1.1" 200 -
+2025-10-27 16:45:58,894 INFO:app:<module>(49): Server NAVIGARA (Python) v3.4 Final SKP Dimulai...
+2025-10-27 16:45:58,895 INFO:app:<module>(56): Gemini OK: gemini-2.5-flash
+2025-10-27 16:45:58,905 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-27 16:45:58,910 INFO:app:<module>(60): Google Search OK.
+2025-10-27 16:45:58,966 INFO:werkzeug:_log(97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.11:5001
+2025-10-27 16:45:58,967 INFO:werkzeug:_log(97): [33mPress CTRL+C to quit[0m
+2025-10-27 16:46:11,727 INFO:app:selayar_osint_sentiment(380): SELAYAR (OSINT): Dipicu. Program: Digitalisasi Layanan Pertanahan, Provider: byteplus
+2025-10-27 16:46:11,728 INFO:app:run_osint_analysis(125): OSINT Engine: Google Search 'Digitalisasi Layanan Pertanahan'
+2025-10-27 16:46:13,484 INFO:app:call_byteplus_api(113): Calling Byteplus API (807 chars)
+2025-10-27 16:46:15,733 ERROR:app:call_byteplus_api(121): Error API Byteplus: 401 Client Error: Unauthorized for url: https://ark.ap-southeast.bytepluses.com/api/v3/chat/completions
+2025-10-27 16:46:15,795 INFO:app:selayar_osint_sentiment(414): SELAYAR OSINT Selesai. Sentimen: Error, Skor: 0
+2025-10-27 16:46:15,798 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 16:46:15] "POST /api/selayar/osint-sentiment HTTP/1.1" 200 -
+2025-10-27 16:46:30,855 INFO:app:selayar_osint_sentiment(380): SELAYAR (OSINT): Dipicu. Program: Digitalisasi Layanan Pertanahan, Provider: gemini
+2025-10-27 16:46:30,855 INFO:app:run_osint_analysis(125): OSINT Engine: Google Search 'Digitalisasi Layanan Pertanahan'
+2025-10-27 16:46:31,370 INFO:app:call_gemini_api(108): Calling Gemini API (807 chars)
+2025-10-27 16:46:39,597 ERROR:app:log_exception(875): Exception on /api/selayar/osint-sentiment [POST]
+Traceback (most recent call last):
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\app.py", line 403, in selayar_osint_sentiment
+    sentimen_umum = parse_sentiment(sentiment_summary)
+                    ^^^^^^^^^^^^^^^
+NameError: name 'parse_sentiment' is not defined
+2025-10-27 16:46:39,609 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 16:46:39] "[35m[1mPOST /api/selayar/osint-sentiment HTTP/1.1[0m" 500 -
+2025-10-27 16:46:54,829 INFO:app:selayar_analyze_skp(423): SELAYAR (SKP V3): Analyze Artifact. File: G.T_Nadya_Noor_Safitri-EKP.pdf
+2025-10-27 16:46:54,911 INFO:app:extract_text_from_file(98): Ekstraksi teks dari G.T_Nadya_Noor_Safitri-EKP.pdf berhasil.
+2025-10-27 16:46:54,912 INFO:app:call_gemini_api(108): Calling Gemini API (10448 chars)
+2025-10-27 16:47:15,754 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 16:47:15] "POST /api/selayar/analyze-skp HTTP/1.1" 200 -
+2025-10-27 16:48:48,201 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 16:48:48] "GET /api/history HTTP/1.1" 200 -
+2025-10-27 16:48:48,222 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 16:48:48] "GET /api/history HTTP/1.1" 200 -
+2025-10-27 16:51:14,344 INFO:app:selayar_osint_sentiment(380): SELAYAR (OSINT): Dipicu. Program: Digitalisasi Layanan Pertanahan, Provider: gemini
+2025-10-27 16:51:14,345 INFO:app:run_osint_analysis(125): OSINT Engine: Google Search 'Digitalisasi Layanan Pertanahan'
+2025-10-27 16:51:14,956 INFO:app:call_gemini_api(108): Calling Gemini API (807 chars)
+2025-10-27 16:51:21,043 ERROR:app:log_exception(875): Exception on /api/selayar/osint-sentiment [POST]
+Traceback (most recent call last):
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\app.py", line 403, in selayar_osint_sentiment
+    sentimen_umum = parse_sentiment(sentiment_summary)
+                    ^^^^^^^^^^^^^^^
+NameError: name 'parse_sentiment' is not defined
+2025-10-27 16:51:21,046 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 16:51:21] "[35m[1mPOST /api/selayar/osint-sentiment HTTP/1.1[0m" 500 -
+2025-10-27 17:12:37,514 INFO:app:<module>(49): Server NAVIGARA (Python) v3.4 Final SKP Dimulai...
+2025-10-27 17:12:37,514 INFO:app:<module>(56): Gemini OK: gemini-2.5-flash
+2025-10-27 17:12:37,519 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-27 17:12:37,521 INFO:app:<module>(60): Google Search OK.
+2025-10-27 17:12:37,568 INFO:werkzeug:_log(97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.11:5001
+2025-10-27 17:12:37,568 INFO:werkzeug:_log(97): [33mPress CTRL+C to quit[0m
+2025-10-27 17:12:51,173 INFO:app:selayar_osint_sentiment(380): SELAYAR (OSINT): Dipicu. Program: Digitalisasi Layanan Pertanahan, Provider: gemini
+2025-10-27 17:12:51,173 INFO:app:run_osint_analysis(125): OSINT Engine: Google Search 'Digitalisasi Layanan Pertanahan'
+2025-10-27 17:12:52,855 INFO:app:call_gemini_api(108): Calling Gemini API (807 chars)
+2025-10-27 17:13:01,371 ERROR:app:log_exception(875): Exception on /api/selayar/osint-sentiment [POST]
+Traceback (most recent call last):
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\app.py", line 403, in selayar_osint_sentiment
+    sentimen_umum = parse_sentiment(sentiment_summary)
+                    ^^^^^^^^^^^^^^^
+NameError: name 'parse_sentiment' is not defined
+2025-10-27 17:13:01,384 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 17:13:01] "[35m[1mPOST /api/selayar/osint-sentiment HTTP/1.1[0m" 500 -
+2025-10-27 17:14:06,200 INFO:app:selayar_analyze_skp(423): SELAYAR (SKP V3): Analyze Artifact. File: G.T_Nadya_Noor_Safitri-EKP.pdf
+2025-10-27 17:14:06,248 INFO:app:extract_text_from_file(98): Ekstraksi teks dari G.T_Nadya_Noor_Safitri-EKP.pdf berhasil.
+2025-10-27 17:14:06,249 INFO:app:call_gemini_api(108): Calling Gemini API (10448 chars)
+2025-10-27 17:14:22,888 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 17:14:22] "POST /api/selayar/analyze-skp HTTP/1.1" 200 -
+2025-10-27 17:47:59,458 INFO:app:<module>(49): Server NAVIGARA (Python) v3.4 Final SKP Dimulai...
+2025-10-27 17:47:59,459 INFO:app:<module>(56): Gemini OK: gemini-2.5-flash
+2025-10-27 17:47:59,465 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-27 17:47:59,468 INFO:app:<module>(60): Google Search OK.
+2025-10-27 17:47:59,517 INFO:werkzeug:_log(97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.11:5001
+2025-10-27 17:47:59,518 INFO:werkzeug:_log(97): [33mPress CTRL+C to quit[0m
+2025-10-27 17:48:12,129 INFO:app:selayar_osint_sentiment(380): SELAYAR (OSINT): Dipicu. Program: Digitalisasi Layanan Pertanahan, Provider: gemini
+2025-10-27 17:48:12,129 INFO:app:run_osint_analysis(125): OSINT Engine: Google Search 'Digitalisasi Layanan Pertanahan'
+2025-10-27 17:48:14,583 INFO:app:call_gemini_api(108): Calling Gemini API (807 chars)
+2025-10-27 17:48:21,049 ERROR:app:log_exception(875): Exception on /api/selayar/osint-sentiment [POST]
+Traceback (most recent call last):
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "G:\10.PROJECT\Hackathon\ASNDigital2025\NAVIGARA_PROJECT\backend-python\app.py", line 403, in selayar_osint_sentiment
+    sentimen_umum = parse_sentiment(sentiment_summary)
+                    ^^^^^^^^^^^^^^^
+NameError: name 'parse_sentiment' is not defined
+2025-10-27 17:48:21,067 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 17:48:21] "[35m[1mPOST /api/selayar/osint-sentiment HTTP/1.1[0m" 500 -
+2025-10-27 17:48:31,746 INFO:app:selayar_analyze_skp(423): SELAYAR (SKP V3): Analyze Artifact. File: G.T_Nadya_Noor_Safitri-EKP.pdf
+2025-10-27 17:48:31,795 INFO:app:extract_text_from_file(98): Ekstraksi teks dari G.T_Nadya_Noor_Safitri-EKP.pdf berhasil.
+2025-10-27 17:48:31,797 INFO:app:call_gemini_api(108): Calling Gemini API (10448 chars)
+2025-10-27 17:49:06,248 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 17:49:06] "POST /api/selayar/analyze-skp HTTP/1.1" 200 -
+2025-10-27 18:12:38,528 INFO:app:<module>(49): Server NAVIGARA (Python) v3.8 Enhanced SKP Prompt Dimulai...
+2025-10-27 18:12:38,528 INFO:app:<module>(56): Gemini OK: gemini-1.5-flash
+2025-10-27 18:12:38,534 INFO:googleapiclient.discovery_cache:autodetect(49): file_cache is only supported with oauth2client<4.0.0
+2025-10-27 18:12:38,537 INFO:app:<module>(60): Google Search OK.
+2025-10-27 18:12:38,604 INFO:werkzeug:_log(97): [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.1.11:5001
+2025-10-27 18:12:38,604 INFO:werkzeug:_log(97): [33mPress CTRL+C to quit[0m
+2025-10-27 18:12:56,168 INFO:app:selayar_osint_sentiment(366): SELAYAR (OSINT): Dipicu. Program: Digitalisasi Layanan Pertanahan, Provider: gemini
+2025-10-27 18:12:56,168 INFO:app:run_osint_analysis(104): OSINT Engine: Google Search 'Digitalisasi Layanan Pertanahan'
+2025-10-27 18:12:58,521 INFO:app:call_gemini_api(87): Calling Gemini API (831 chars)
+2025-10-27 18:12:58,906 ERROR:app:call_gemini_api(89): Error API Gemini: 404 models/gemini-1.5-flash is not found for API version v1beta, or is not supported for generateContent. Call ListModels to see the list of available models and their supported methods.
+2025-10-27 18:12:58,911 WARNING:app:parse_score(153): Pola skor 'Skor Sentimen' tidak ditemukan. Default: 50
+2025-10-27 18:12:58,965 INFO:app:selayar_osint_sentiment(397): SELAYAR OSINT Selesai. Sentimen: Tidak Ditemukan, Skor: 50
+2025-10-27 18:12:58,974 INFO:werkzeug:_log(97): 127.0.0.1 - - [27/Oct/2025 18:12:58] "POST /api/selayar/osint-sentiment HTTP/1.1" 200 -
